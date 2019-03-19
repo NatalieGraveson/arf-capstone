@@ -44,8 +44,8 @@ server.use((req, res, next) => {
 })
 
 //YOUR ROUTES HERE!!!!!!
-let boardRoutes = require('./server-assets/routes/board')
-server.use('/api/boards', boardRoutes)
+// let boardRoutes = require('./server-assets/routes/board')
+// server.use('/api/boards', boardRoutes)
 
 
 
@@ -62,5 +62,5 @@ server.use('*', (req, res, next) => {
 
 
 server.listen(port, () => {
-  console.log('server running on port', port)
+  console.log('YOU DID GOOD!!!', port)
 })
