@@ -1,15 +1,13 @@
 <template>
-  <div class="eLanding row">
-    <div class="col-12">
-      <h1>This is Employee Landing</h1>
-      <dog></dog>
-    </div>
+  <div class="eLanding">
+    <h1>This is Employee Landing</h1>
+    <Dog></Dog>
   </div>
 </template>
 
 <script>
   import router from '@/router.js'
-  import Dog from '@/components/EmployeeComponents/Dog.vue'
+  import Dog from '@/components/Employee-Components/Dog.vue'
   export default {
     name: "eLanding",
     props: [],
