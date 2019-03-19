@@ -1,6 +1,7 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
+let schemaName = 'Identity'
 
 //bcrypt uses hashing and salt to obfiscate your password 
 let bcrypt = require('bcryptjs')
@@ -9,9 +10,9 @@ const SALT = 10
 
 let schema = new Schema({
   name: { type: String, required: true },
-  //every email must be unique on the database
   email: { type: String, required: true, unique: true },
-  hash: { type: String, required: true }
+  hash: { type: String, required: true },
+  employee: { type: Boolean, default: false, required: true },
 }, { timestamps: true })
 
 
@@ -27,4 +28,4 @@ schema.methods.validatePassword = function (password) {
   return bcrypt.compare(password, this.hash)
 }
 
-module.exports = mongoose.model('User', schema)
+module.exports = mongoose.model('Identity', schema)
