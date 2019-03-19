@@ -5,6 +5,8 @@
 </template>
 
 <script>
+  import router from '@/router.js'
+
   export default {
     name: "",
     props: [],
