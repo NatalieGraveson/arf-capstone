@@ -43,17 +43,18 @@ server.use((req, res, next) => {
   next()
 })
 
-//YOUR ROUTES HERE!!!!!!
-// let boardRoutes = require('./server-assets/routes/board')
-// server.use('/api/boards', boardRoutes)
+let petOwnerRoutes = require('./server-assets/routes/petOwner')
+// let pets = require('./server-assets/routes/pet')
+
+server.use('/api/', petOwnerRoutes)
 
 
 
 
-
-
-
-//Catch all
+//Catch All
+server.use('*', (err, req, res, next) => {
+  res.status(500).send(err)
+})
 server.use('*', (req, res, next) => {
   res.status(404).send({
     error: 'No matching routes'
