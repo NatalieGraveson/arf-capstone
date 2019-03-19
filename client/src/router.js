@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
+import ELanding from './views/EmployeeViews/ELanding.vue'
+import Incidents from './views/EmployeeViews/Incidents.vue'
+import Owners from './views/EmployeeViews/Owners.vue'
+import PetDetails from './views/EmployeeViews/PetDetails.vue'
 
 Vue.use(Router)
 
@@ -14,6 +18,26 @@ export default new Router({
     {
       path: "*",
       redirect: '/'
+    },
+    {
+      path: '/ELanding',
+      name: 'ELanding',
+      component: ELanding
+    },
+    {
+      path: '/Incidents',
+      name: 'Incidents',
+      component: Incidents
+    },
+    {
+      path: '/Owners',
+      name: 'Owners',
+      component: Owners
+    },
+    {
+      path: '/PetDetails',
+      name: 'PetDetails',
+      component: PetDetails
     }
   ]
 })

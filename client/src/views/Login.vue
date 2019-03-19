@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <form v-if="loginForm" @submit.prevent="loginUser">
+    <form v-if="loginForm">
       <input type="email" v-model="creds.email" placeholder="email">
       <input type="password" v-model="creds.password" placeholder="password">
       <button type="submit">Login</button>
@@ -15,7 +15,12 @@
       <p v-if="loginForm">No account? Click here to Register</p>
       <p v-else>Already have an account? Click here to Login</p>
     </div>
+    <router-link to="/eLanding">
+      <p>Take me to ELanding</p>
+    </router-link>
+
   </div>
+  <!-- @submit.prevent="loginUser" -->
 </template>
 
 <script>
