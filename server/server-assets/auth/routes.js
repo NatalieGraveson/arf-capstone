@@ -1,7 +1,7 @@
 //THIS FILE SHOULD NOT NEED TO BE CHANGED
 
 let router = require('express').Router();
-let Users = require('../models/user');
+let Identity = require('../models/identity');
 let session = require('./session')
 
 //NEVER TELL USERS WHICH FAILED
@@ -16,9 +16,9 @@ router.post('/auth/register', (req, res) => {
     })
   }
   //CHANGE THE PASSWORD TO A HASHED PASSWORD
-  req.body.hash = Users.generateHash(req.body.password)
+  req.body.hash = Identity.generateHash(req.body.password)
   //CREATE THE USER
-  Users.create(req.body)
+  Identity.create(req.body)
     .then(user => {
       //REMOVE THE PASSWORD BEFORE RETURNING
       delete user._doc.hash
@@ -33,7 +33,7 @@ router.post('/auth/register', (req, res) => {
 
 router.post('/auth/login', (req, res) => {
   //FIND A USER BASED ON PROVIDED EMAIL
-  Users.findOne({
+  Identity.findOne({
     email: req.body.email
   })
     .then(user => {
@@ -68,7 +68,7 @@ router.delete('/auth/logout', (req, res) => {
 
 //Validates req.session.uid
 router.get('/auth/authenticate', (req, res) => {
-  Users.findById(req.session.uid)
+  Identity.findById(req.session.uid)
     .then(user => {
       if (!user) {
         return res.status(401).send({
