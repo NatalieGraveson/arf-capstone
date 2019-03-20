@@ -1,8 +1,10 @@
 <template>
   <div class="eLanding row">
-    <div class="col-12">
-      <h1>This is Employee Landing</h1>
-      <dog></dog>
+    <div class="col-12 elheadr ">
+      <h1 class="mb-5">This is Employee Landing</h1>
+      <div class="col-12 dogbucket">
+        <dog></dog>
+      </div>
     </div>
   </div>
 </template>
@@ -24,4 +26,15 @@
   }
 </script>
 <style>
+  .elheadr {
+    padding: 5vh;
+
+
+  }
+
+  .dogbucket {
+    background-color: rgba(0, 0, 0, 0.212);
+    padding: 5vw;
+    border-radius: 20px;
+  }
 </style>

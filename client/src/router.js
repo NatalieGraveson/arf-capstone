@@ -5,6 +5,8 @@ import ELanding from './views/EmployeeViews/ELanding.vue'
 import Incidents from './views/EmployeeViews/Incidents.vue'
 import Owners from './views/EmployeeViews/Owners.vue'
 import PetDetails from './views/EmployeeViews/PetDetails.vue'
+import Registration from './views/EmployeeViews/Registration.vue'
+import Billing from './views/EmployeeViews/Billing.vue'
 
 Vue.use(Router)
 
@@ -38,6 +40,16 @@ export default new Router({
       path: '/PetDetails',
       name: 'PetDetails',
       component: PetDetails
+    },
+    {
+      path: '/Registration',
+      name: 'Registration',
+      component: Registration
+    },
+    {
+      path: '/Billing',
+      name: 'Billing',
+      component: Billing
     }
   ]
 })
