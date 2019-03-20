@@ -29,6 +29,17 @@ router.get(baseRoute + '/:id', (req, res, next) => {
 })
 
 //POST
+router.post(baseRoute, (req, res, next) => {
+  req.body.authorId = req.session.uid
+  PetOwners.create(req.body)
+    .then(newOwner => {
+      res.send(newOwner)
+    })
+    .catch(err => {
+      console.log(err)
+      next(err)
+    })
+})
 
 
 
