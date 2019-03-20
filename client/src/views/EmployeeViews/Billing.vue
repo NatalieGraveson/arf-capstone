@@ -1,16 +1,14 @@
 <template>
-  <div class="">
-    <h1 class="">This is owners
-    </h1>
+  <div class="billing">
+
+    BILLING
   </div>
 </template>
 
-<script>
-  import router from '@/router.js'
 
+<script>
   export default {
-    name: "",
-    props: [],
+    name: 'billing',
     data() {
       return {}
     },
@@ -19,6 +17,8 @@
     components: {}
   }
 </script>
-<style>
+
+
+<style scoped>
 
 </style>

@@ -21,7 +21,8 @@ let api = Axios.create({
 
 export default new Vuex.Store({
   state: {
-    user: {}
+    user: {},
+
   },
   mutations: {
     setUser(state, user) {
@@ -34,24 +35,25 @@ export default new Vuex.Store({
       auth.post('register', newUser)
         .then(res => {
           commit('setUser', res.data)
-          router.push({ name: 'put route name here' })
+          router.push({ name: 'ELanding' })
         })
     },
     authenticate({ commit, dispatch }) {
       auth.get('authenticate')
         .then(res => {
           commit('setUser', res.data)
-          router.push({ name: 'put route name here' })
+          router.push({ name: 'ELanding' })
         })
         .catch(res => {
           router.push({ name: 'login' })
         })
     },
     login({ commit, dispatch }, creds) {
+      debugger
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
-          router.push({ name: 'put route name here' })
+          router.push({ name: 'ELanding' })
         })
     },
     //#endregion

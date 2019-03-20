@@ -1,17 +1,16 @@
 <template>
-  <div class="row petdetails">
-    <div class="col-md-10 col-12">
-      <h1>Pet Details</h1>
+  <div class="row registration">
+    <div class="col-md-10 offset-1 col-12">
+      <h1>Registration Form Here</h1>
     </div>
 
   </div>
 </template>
 
+
 <script>
-  import router from '@/router.js'
   export default {
-    name: "",
-    props: [],
+    name: 'registration',
     data() {
       return {}
     },
@@ -20,5 +19,8 @@
     components: {}
   }
 </script>
-<style>
+
+
+<style scoped>
+
 </style>
