@@ -5,7 +5,7 @@ import router from './router'
 
 Vue.use(Vuex)
 //Allows axios to work locally or live
-let base = window.location.host.includes('localhost:8080') ? '//localhost:3000' : '/'
+let base = window.location.host.includes('localhost:8080') ? '//localhost:3000/' : '/'
 
 let auth = Axios.create({
   baseURL: base + "auth/",
@@ -49,10 +49,10 @@ export default new Vuex.Store({
         })
     },
     login({ commit, dispatch }, creds) {
+      debugger
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
-          debugger
           router.push({ name: 'ELanding' })
         })
     },
