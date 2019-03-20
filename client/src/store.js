@@ -49,10 +49,10 @@ export default new Vuex.Store({
         })
     },
     login({ commit, dispatch }, creds) {
-      debugger
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
+          debugger
           router.push({ name: 'ELanding' })
         })
     },
