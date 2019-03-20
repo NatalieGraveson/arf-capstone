@@ -9,7 +9,8 @@ let schema = new Schema({
   img: { type: String },
   petOwnerId: { type: ObjectId, ref: 'PetOwner' },
   noteId: { type: ObjectId, ref: 'Note' },
-  checkedIn: { type: Boolean, default: false }
+  checkedIn: { type: Boolean, default: false },
+  identityId: { type: ObjectId, ref: 'Identity', required: true }
 })
 
 module.exports = mongoose.model(schemaName, schema)

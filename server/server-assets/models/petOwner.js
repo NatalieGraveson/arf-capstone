@@ -11,7 +11,7 @@ let schema = new Schema({
   billing: { type: String },
   petId: { type: ObjectId, ref: 'Pet' },
   noteId: { type: ObjectId, ref: 'Note' },
-  identityId: { type: ObjectId, ref: 'Identity' }
+  identityId: { type: ObjectId, ref: 'Identity', required: true }
 })
 
 module.exports = mongoose.model(schemaName, schema)

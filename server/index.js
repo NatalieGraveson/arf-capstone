@@ -46,7 +46,7 @@ server.use((req, res, next) => {
 let petOwnerRoutes = require('./server-assets/routes/petOwner')
 // let pets = require('./server-assets/routes/pet')
 
-server.use('/api/', petOwnerRoutes)
+server.use('/api/employee', petOwnerRoutes)
 
 
 

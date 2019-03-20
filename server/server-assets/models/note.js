@@ -9,7 +9,8 @@ let schema = new Schema({
   petId: { type: ObjectId, ref: 'Pet' },
   body: { type: String },
   flagged: { type: String, enum: ["Incident", "Pet Report", "General"] },
-  petOwnerId: { type: ObjectId, ref: 'PetOwner' }
+  petOwnerId: { type: ObjectId, ref: 'PetOwner' },
+  identityId: { type: ObjectId, ref: 'Identity', required: true }
 })
 
 module.exports = mongoose.model(schemaName, schema)

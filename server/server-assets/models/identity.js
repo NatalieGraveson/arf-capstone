@@ -13,6 +13,7 @@ let schema = new Schema({
   email: { type: String, required: true, unique: true },
   hash: { type: String, required: true },
   employee: { type: Boolean, default: false, required: true },
+  pet: [{ type: ObjectId, ref: 'Pet' }]
 }, { timestamps: true })
 
 
