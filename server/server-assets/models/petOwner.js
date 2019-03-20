@@ -7,8 +7,8 @@ let schema = new Schema({
   name: { type: String, required: true },
   address: { type: String },
   phone: { type: Number },
-  eContact: { type: Number, required: false },
-  billing: { type: String },
+  eContact: { type: String, required: false },
+  balance: { type: String },
   petId: { type: ObjectId, ref: 'Pet' },
   noteId: { type: ObjectId, ref: 'Note' },
   identityId: { type: ObjectId, ref: 'Identity', required: true }

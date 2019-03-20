@@ -49,11 +49,17 @@ export default new Vuex.Store({
         })
     },
     login({ commit, dispatch }, creds) {
-      debugger
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
           router.push({ name: 'ELanding' })
+        })
+    },
+    logout({ commit, dispatch }) {
+      auth.delete('logout')
+        .then(res => {
+          commit('setUser', {})
+          router.push({ name: 'login' })
         })
     },
     //#endregion

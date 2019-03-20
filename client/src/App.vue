@@ -21,7 +21,7 @@
             <a class="nav-link" @click="$router.push({name:'Billing'})">Billing</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" @click="$router.push({name:'Registration'})">Register</a>
+            <a class="nav-link" @click="$router.push({name:'Registration'})">Registration</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -29,6 +29,7 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
+      <div><button class="btn logoutbtn" @click="logout"><i class="fas fa-sign-out-alt"></i> Logout</button></div>
     </nav>
 
     <router-view />
@@ -42,6 +43,15 @@
     mounted() {
       //Authenticate on startup
       this.$store.dispatch('authenticate')
+    },
+    data() {
+      return {
+      }
+    },
+    methods: {
+      logout() {
+        this.$store.dispatch('logout')
+      }
     }
   }
 </script>
