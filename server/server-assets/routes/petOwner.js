@@ -50,7 +50,7 @@ router.put(baseRoute + '/:id', (req, res, next) => {
   PetOwners.findById(req.params.id)
     .then(petOwner => {
       if (!petOwner.identityId.equals(req.session.uid)) {
-        return res.status(401).send("ACESS DENIED!")
+        return res.status(401).send("ACCESS DENIED!")
       }
       petOwner.update(req.body, (err) => {
         if (err) {

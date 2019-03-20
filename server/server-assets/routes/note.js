@@ -1,13 +1,13 @@
 let router = require('express').Router()
-let Pets = require('../models/pet')
+let Notes = require('../models/note')
 
 
-let baseRoute = '/petowners/:petOwnerId/pets'
+let baseRoute = '/petowners/:petOwnerId/pets/:petId/notes'
 
 //GET
 //TESTED AND WORKS
 router.get(baseRoute, (req, res, next) => {
-  Pets.find({ petOwnerId: req.params.petOwnerId, identityId: req.session.uid })
+  Notes.find({ petId: req.params.petId, identityId: req.session.uid })
     .then(data => {
       res.send(data)
     })
@@ -16,11 +16,10 @@ router.get(baseRoute, (req, res, next) => {
       next(err)
     })
 })
-
-//GET ONE PET
+//GET ONE
 //TESTED AND WORKS
 router.get(baseRoute + '/:id', (req, res, next) => {
-  Pets.findOne({ _id: req.params.id, identityId: req.session.uid })
+  Notes.findOne({ _id: req.params.id, identityId: req.session.uid })
     .then(data => {
       res.send(data)
     })
@@ -35,9 +34,9 @@ router.get(baseRoute + '/:id', (req, res, next) => {
 //TESTED AND WORKS
 router.post(baseRoute, (req, res, next) => {
   req.body.identityId = req.session.uid
-  Pets.create(req.body)
-    .then(newPet => {
-      res.send(newPet)
+  Notes.create(req.body)
+    .then(newNote => {
+      res.send(newNote)
     })
     .catch(err => {
       console.log(err)
@@ -46,9 +45,9 @@ router.post(baseRoute, (req, res, next) => {
 })
 
 //DELETE
-//TESTED AND WORKS
+
 router.delete(baseRoute + '/:id', (req, res, next) => {
-  Pets.deleteOne({ _id: req.params.id, identityId: req.session.uid })
+  Notes.deleteOne({ _id: req.params.id, identityId: req.session.uid })
     .then(pet => {
       res.send("Successfully Deleted")
     })
@@ -58,14 +57,14 @@ router.delete(baseRoute + '/:id', (req, res, next) => {
 })
 
 //PUT
-//TESTED AND WORKS
+
 router.put(baseRoute + '/:id', (req, res, next) => {
-  Pets.findById(req.params.id)
-    .then(pet => {
-      if (!pet.identityId.equals(req.session.uid)) {
+  Notes.findById(req.params.id)
+    .then(note => {
+      if (!note.identityId.equals(req.session.uid)) {
         return res.status(401).send("ACESS DENIED!")
       }
-      pet.update(req.body, (err) => {
+      note.update(req.body, (err) => {
         if (err) {
           console.log(err)
           next(err)
@@ -81,4 +80,3 @@ router.put(baseRoute + '/:id', (req, res, next) => {
 })
 
 module.exports = router
-
