@@ -28,12 +28,12 @@
 <style>
   .elheadr {
     padding: 5vh;
-
+    margin-top: 50px;
 
   }
 
   .dogbucket {
-    background-color: rgba(0, 0, 0, 0.212);
+    /* background-color: rgba(0, 0, 0, 0.212); */
     padding: 5vw;
     border-radius: 20px;
   }

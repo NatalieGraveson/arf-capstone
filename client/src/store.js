@@ -22,11 +22,25 @@ let api = Axios.create({
 export default new Vuex.Store({
   state: {
     user: {},
-
+    owners: {},
+    pets: {},
+    notes: []
   },
   mutations: {
     setUser(state, user) {
       state.user = user
+    },
+    addOwner(state, data) {
+      state.owners.push(data)
+    },
+    deleteOwner(state, data) {
+      state.owners.push(data)
+    },
+    setOwners(state, data) {
+      state.owners = data
+    },
+    setOwner(state, data) {
+      state.owners = data
     }
   },
   actions: {
@@ -63,6 +77,35 @@ export default new Vuex.Store({
         })
     },
     //#endregion
-
+    //#region -- OWNER STUFF
+    createOwner({ commit, state }, payload) {
+      api.post('owners', payload)
+        .then(res => {
+          console.log(res)
+          commit('addOwner', res.data.results)
+        })
+    },
+    deleteOwner({ dispatch }, payload) {
+      api.delete('owners/' + payload.ownerId, payload)
+        .then(res => {
+          console.log(res)
+          dispatch('getOwners', payload.ownerId)
+        })
+    },
+    getOwners({ commit, dispatch }, payload) {
+      api.get('owners')
+        .then(res => {
+          console.log(res)
+          commit('setOwners', res.data.results)
+        })
+    },
+    getOwner({ commit, dispatch }, payload) {
+      api.get('owners/' + payload.ownerId)
+        .then(res => {
+          console.log(res)
+          commit('setOwner', res.data.results)
+        })
+    }
+    //#endregion
   }
 })

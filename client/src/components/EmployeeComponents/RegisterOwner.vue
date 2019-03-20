@@ -1,18 +1,24 @@
 <template>
-  <div class="registerowner mt-3">
+  <div class="registerowner">
     <form class="row" @submit.prevent='CreateOwner'>
       <div class="col-12">
-        <input type="text" v-model="newOwner.name" name="Name" placeholder="Name:" required>
+        <h3>Owner Information</h3>
+        <input class="formfield" type="text" v-model="newPetOwner.name" name="Name" placeholder="Name:" required>
         <br>
-        <input type="text" name="Address" placeholder="Address:">
+        <input class="formfield" type="text" v-model="newPetOwner.address" name="Address" placeholder="Address:">
         <br>
-        <input type="number" name="Phone Number" placeholder="Phone Number:">
+        <input class="formfield" type="number" v-model="newPetOwner.phone" name="Phone Number"
+          placeholder="Phone Number:">
+        <hr>
+        <h5>Emergency Contact</h5>
+        <input class="formfield" type="text" v-model="newPetOwner.eContactName" name="Emergency Contact Name"
+          placeholder="Name:">
         <br>
-        <input type="text" name="Emergency Contact" placeholder="Emergency Contact:">
-        <br>
+        <input class="formfield" type="text" v-model="newPetOwner.eContactNumber" name="Emergency Contact Number"
+          placeholder="Number:">
       </div>
       <div class="col-12 mt-3">
-        <input type="submit" value="CreateOwner">
+        <button class="btn btn-info" type="submit">Create Owner</button>
       </div>
     </form>
   </div>
@@ -24,17 +30,45 @@
     name: 'RegisterOwner',
     data() {
       return {
-        newOwner: {
+        newPetOwner: {
         }
       }
     },
     computed: {},
-    methods: {},
-    components: {}
+    methods: {
+      createOwner() {
+        this.$store.dispatch('createOwner', this.newOwner)
+      }
+    },
+    components: {
+
+    }
   }
 </script>
 
 
 <style scoped>
+  .registerowner {
+    background-color: rgba(0, 0, 0, 0.596);
+    border-radius: 30px;
+    padding: 30px;
+  }
 
+  h3 {
+    color: rgb(144, 185, 32);
+    text-shadow: -1px -1px black;
+  }
+
+  h5 {
+    color: rgb(185, 37, 32);
+    text-shadow: -1px -1px black;
+  }
+
+
+  .formfield {
+    min-width: 30%;
+    max-width: 60%;
+    padding: 10px;
+    margin-top: 1em;
+  }
 </style>

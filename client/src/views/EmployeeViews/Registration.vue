@@ -1,16 +1,11 @@
 <template>
   <div class="row registration">
-    <div class="col-md-10 offset-1 col-12">
-      <h1>Registration Form Here</h1>
-      <button class="btn btn-primary" @click="registerForm = !registerForm">
-        {{ registerForm ? 'Register Pet' : 'Register Owner' }}
-      </button>
+    <div class="col-12">
+      <h1 class=""></h1>
+
     </div>
-    <div class="col-md-10 offset-1 col-12" v-if="registerForm">
+    <div class="col-md-8 offset-md-2 col-12" v-if="registerForm">
       <register-owner></register-owner>
-    </div>
-    <div class="col-md-10 offset-1 col-12" v-if="!registerForm">
-      <register-pet></register-pet>
     </div>
   </div>
 </template>
@@ -37,5 +32,11 @@
 
 
 <style scoped>
+  .regbut {
+    padding: 20px;
+  }
 
+  h1 {
+    padding: 8vh;
+  }
 </style>
