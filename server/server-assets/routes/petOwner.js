@@ -1,10 +1,9 @@
 let router = require('express').Router()
 let PetOwners = require('../models/petOwner')
 
-
 let baseRoute = '/petowners'
 //GET ALL
-//TESTED AND WORKS
+//FIX ME
 router.get(baseRoute, (req, res, next) => {
   PetOwners.find({ identityId: req.session.uid })
     .then(data => {
@@ -20,7 +19,7 @@ router.get(baseRoute, (req, res, next) => {
 //GET ONE
 //TESTED AND WORKS
 router.get(baseRoute + '/:id', (req, res, next) => {
-  PetOwners.findOne({ _id: req.params.id, identityId: req.session.uid })
+  PetOwners.findOne({ _id: req.params.id })
     .then(data => {
       res.send(data)
     })
@@ -71,7 +70,7 @@ router.put(baseRoute + '/:id', (req, res, next) => {
 //TESTED AND WORKS
 router.delete(baseRoute + '/:id', (req, res, next) => {
   let petOwnerId = req.param('id')
-  PetOwners.findById({ _id: petOwnerId, identityId: req.session.uid })
+  PetOwners.findById({ _id: petOwnerId })
     .then(petOwner => {
       petOwner.remove(err => {
         if (err) {

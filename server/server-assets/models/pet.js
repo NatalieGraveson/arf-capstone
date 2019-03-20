@@ -11,7 +11,7 @@ let schema = new Schema({
   petOwnerId: { type: ObjectId, ref: 'PetOwner', required: true },
   noteId: { type: ObjectId, ref: 'Note' },
   checkedIn: { type: Boolean, default: false },
-  identityId: { type: ObjectId, ref: 'Identity', required: true }
+  identityId: { type: ObjectId, ref: 'Identity' }
 })
 
 module.exports = mongoose.model(schemaName, schema)

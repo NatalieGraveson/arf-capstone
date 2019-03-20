@@ -7,7 +7,7 @@ let baseRoute = '/petowners/:petOwnerId/pets/:petId/notes'
 //GET
 //TESTED AND WORKS
 router.get(baseRoute, (req, res, next) => {
-  Notes.find({ petId: req.params.petId, identityId: req.session.uid })
+  Notes.find({ petId: req.params.petId })
     .then(data => {
       res.send(data)
     })
@@ -19,7 +19,7 @@ router.get(baseRoute, (req, res, next) => {
 //GET ONE
 //TESTED AND WORKS
 router.get(baseRoute + '/:id', (req, res, next) => {
-  Notes.findOne({ _id: req.params.id, identityId: req.session.uid })
+  Notes.findOne({ _id: req.params.id })
     .then(data => {
       res.send(data)
     })
@@ -47,7 +47,7 @@ router.post(baseRoute, (req, res, next) => {
 //DELETE
 
 router.delete(baseRoute + '/:id', (req, res, next) => {
-  Notes.deleteOne({ _id: req.params.id, identityId: req.session.uid })
+  Notes.deleteOne({ _id: req.params.id })
     .then(pet => {
       res.send("Successfully Deleted")
     })

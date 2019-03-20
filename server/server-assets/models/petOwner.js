@@ -13,7 +13,7 @@ let schema = new Schema({
   // petId: { type: ObjectId, ref: 'Pet' },
   pets: [{ type: ObjectId, ref: 'Pet' }],
   noteId: { type: ObjectId, ref: 'Note' },
-  identityId: { type: ObjectId, ref: 'Identity', required: true }
+  identityId: { type: ObjectId, ref: 'Identity' }
 })
 
 module.exports = mongoose.model(schemaName, schema)

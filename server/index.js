@@ -32,6 +32,8 @@ let auth = require('./server-assets/auth/routes')
 server.use(auth.session)
 server.use(auth.router)
 
+//Public routes here
+
 
 //Gate Keeper Must login to access any route below this code
 server.use((req, res, next) => {
@@ -47,9 +49,24 @@ let petOwnerRoutes = require('./server-assets/routes/petOwner')
 let pets = require('./server-assets/routes/pet')
 let notes = require('./server-assets/routes/note')
 
+//customer routes
+//api/customer
+
+
+//must be logged in and be an employee to access the employee routes
+server.use('api/employee', (req, res, next) => {
+  if (!req.session.isEmployee) {
+    return res.status(401).send({
+      error: 'Unathorized'
+    })
+  }
+  next()
+})
+
 server.use('/api/employee', petOwnerRoutes)
 server.use('/api/employee', pets)
 server.use('/api/employee', notes)
+
 
 
 
