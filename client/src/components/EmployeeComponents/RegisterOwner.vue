@@ -1,6 +1,6 @@
 <template>
   <div class="registerowner">
-    <form class="row" @submit.prevent='CreateOwner'>
+    <form class="row" @submit.prevent='createOwner()'>
       <div class="col-12">
         <h3>Owner Information</h3>
         <input class="formfield" type="text" v-model="newPetOwner.name" name="Name" placeholder="Name:" required>
@@ -37,7 +37,7 @@
     computed: {},
     methods: {
       createOwner() {
-        this.$store.dispatch('createOwner', this.newOwner)
+        this.$store.dispatch('createOwner', this.newPetOwner)
       }
     },
     components: {
