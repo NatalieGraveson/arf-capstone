@@ -80,7 +80,7 @@ export default new Vuex.Store({
     //#region -- OWNER STUFF
     createOwner({ commit, state }, payload) {
       debugger
-      api.post('employee/petowners/', payload.)
+      api.post('employee/petowners/', payload)
         .then(res => {
           console.log(res)
           commit('addOwner', res.data.results)
