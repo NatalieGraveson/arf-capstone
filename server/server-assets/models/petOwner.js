@@ -10,7 +10,8 @@ let schema = new Schema({
   eContactName: { type: String, required: false },
   eContactNumber: { type: Number, required: false },
   balance: { type: String },
-  petId: { type: ObjectId, ref: 'Pet' },
+  // petId: { type: ObjectId, ref: 'Pet' },
+  pets: [{ type: ObjectId, ref: 'Pet' }],
   noteId: { type: ObjectId, ref: 'Note' },
   identityId: { type: ObjectId, ref: 'Identity', required: true }
 })
