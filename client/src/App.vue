@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" v-show="$route.name != 'login'">
       <a class="navbar-brand" href="#" @click="$router.push({name:'ELanding'})">A r f</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,6 +86,10 @@
   }
 
   .navbar {
+    position: fixed;
+    right: 25px;
+    left: 25px;
+    z-index: 4;
     cursor: pointer;
     border-radius: 0 0 15px 15px
   }

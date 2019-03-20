@@ -5,6 +5,7 @@ let schemaName = 'Pet'
 
 let schema = new Schema({
   name: { type: String, required: true },
+  age: { type: String },
   breed: { type: String },
   img: { type: String },
   petOwnerId: { type: ObjectId, ref: 'PetOwner', required: true },

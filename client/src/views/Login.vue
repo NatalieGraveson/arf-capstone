@@ -1,24 +1,23 @@
 <template>
-  <div class="login">
-    <form v-if="loginForm" @submit.prevent="loginUser">
-      <input type="email" v-model="creds.email" placeholder="email">
-      <input type="password" v-model="creds.password" placeholder="password">
-      <button type="submit">Login</button>
-    </form>
-    <form v-else @submit.prevent="register">
-      <input type="text" v-model="newUser.name" placeholder="name">
-      <input type="email" v-model="newUser.email" placeholder="email">
-      <input type="password" v-model="newUser.password" placeholder="password">
-      <button type="submit">Create Account</button>
-    </form>
-    <div class="action" @click="loginForm = !loginForm">
+  <div class="login row">
+    <div class="col-12">
+      <form v-if="loginForm" @submit.prevent="loginUser">
+        <input type="email" v-model="creds.email" placeholder="email">
+        <input type="password" v-model="creds.password" placeholder="password">
+        <button type="submit">Login</button>
+      </form>
+      <form v-else @submit.prevent="register">
+        <input type="text" v-model="newUser.name" placeholder="name">
+        <input type="email" v-model="newUser.email" placeholder="email">
+        <input type="password" v-model="newUser.password" placeholder="password">
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+    <div class="action col-12" @click="loginForm = !loginForm">
       <p v-if="loginForm">No account? Click here to Register</p>
       <p v-else>Already have an account? Click here to Login</p>
     </div>
-
-
   </div>
-
 </template>
 
 <script>
@@ -53,5 +52,9 @@
 <style>
   .action {
     cursor: pointer;
+  }
+
+  .login {
+    padding: 50px;
   }
 </style>
