@@ -4,8 +4,17 @@
       <h1 class="ownerTitle">Pet Owners</h1>
 
     </div>
-    <div class="col-12">
-      <owner v-for="owner in owners" :ownerData="owner"></owner>
+    <div class="col-xs-12 col-md-4 offset-md-4">
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="">Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <owner v-for="owner in owners" :ownerData="owner"></owner>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>

@@ -1,8 +1,8 @@
 <template>
-  <div class="row">
-    <div class="col-12">
-      <p>{{ownerData.name}}</p>
-    </div>
+  <tr class="click" @click="$router.push({name: 'Profile', params: {id:ownerData._id}})">
+    <td>{{ownerData.name}}</td>
+  </tr>
+  </div>
   </div>
 </template>
 
@@ -18,3 +18,9 @@
     components: {}
   }
 </script>
+
+<style>
+  .click:hover {
+    cursor: pointer;
+  }
+</style>

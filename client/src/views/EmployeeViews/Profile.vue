@@ -17,7 +17,7 @@
   import OwnerProfile from '@/components/EmployeeComponents/OwnerProfile.vue'
   import PetProfile from '@/components/EmployeeComponents/PetProfile.vue'
   export default {
-    name: "",
+    name: "profile",
     props: [],
     data() {
       return {}
