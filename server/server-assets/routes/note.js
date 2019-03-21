@@ -33,7 +33,7 @@ router.get(baseRoute + '/:id', (req, res, next) => {
 //POST
 //TESTED AND WORKS
 router.post(baseRoute, (req, res, next) => {
-  req.body.identityId = req.session.uid
+  // req.body.identityId = req.session.uid
   Notes.create(req.body)
     .then(newNote => {
       res.send(newNote)
@@ -59,24 +59,14 @@ router.delete(baseRoute + '/:id', (req, res, next) => {
 //PUT
 
 router.put(baseRoute + '/:id', (req, res, next) => {
-  Notes.findById(req.params.id)
+  Notes.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then(note => {
-      if (!note.identityId.equals(req.session.uid)) {
-        return res.status(401).send("ACESS DENIED!")
-      }
-      note.update(req.body, (err) => {
-        if (err) {
-          console.log(err)
-          next(err)
-          return
-        }
-        res.send("Successfully Updated")
-      })
+      res.status(200).send(note)
     })
     .catch(err => {
-      console.log(err)
-      next(err)
+      res.status(400).send({ Error: err })
     })
 })
+
 
 module.exports = router

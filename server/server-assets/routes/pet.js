@@ -34,7 +34,7 @@ router.get(baseRoute + '/:id', (req, res, next) => {
 //POST
 //TESTED AND WORKS
 router.post(baseRoute, (req, res, next) => {
-  req.body.identityId = req.session.uid
+  // req.body.identityId = req.session.uid
   Pets.create(req.body)
     .then(newPet => {
       res.send(newPet)
@@ -60,23 +60,12 @@ router.delete(baseRoute + '/:id', (req, res, next) => {
 //PUT
 //TESTED AND WORKS
 router.put(baseRoute + '/:id', (req, res, next) => {
-  Pets.findById(req.params.id)
+  Pets.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
     .then(pet => {
-      if (!pet.identityId.equals(req.session.uid)) {
-        return res.status(401).send("ACESS DENIED!")
-      }
-      pet.update(req.body, (err) => {
-        if (err) {
-          console.log(err)
-          next(err)
-          return
-        }
-        res.send("Successfully Updated")
-      })
+      res.status(200).send(pet)
     })
     .catch(err => {
-      console.log(err)
-      next(err)
+      res.status(400).send({ Error: err })
     })
 })
 
