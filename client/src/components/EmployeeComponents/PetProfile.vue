@@ -16,7 +16,7 @@
       components: {}
    }
 </script>
-<style>
+<style scoped>
    .card {
       /* background-image: url('https://vignette.wikia.nocookie.net/edwikia/images/0/0d/Plank.png/revision/latest/scale-to-width-down/338?cb=20170726093347'); */
       /* background-repeat: no-repeat; */

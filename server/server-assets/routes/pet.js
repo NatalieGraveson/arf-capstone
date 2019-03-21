@@ -7,7 +7,11 @@ let baseRoute = '/petowners/:petOwnerId/pets'
 //GET
 //TESTED AND WORKS
 router.get(baseRoute, (req, res, next) => {
-  Pets.find({ petOwnerId: req.params.petOwnerId })
+  let params = {}
+  if (req.params.petOwnerId != 'all') {
+    params = { petOwnerId: req.params.petOwnerId }
+  }
+  Pets.find(params)
     .then(data => {
       res.send(data)
     })

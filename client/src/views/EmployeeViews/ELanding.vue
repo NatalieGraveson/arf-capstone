@@ -3,7 +3,7 @@
     <div class="col-12 elheadr ">
       <h1 class="mb-5">This is Employee Landing</h1>
       <div class="col-12 dogbucket">
-        <dog></dog>
+        <dog v-for="dog in dogs" :dogData="dog"></dog>
       </div>
     </div>
   </div>
@@ -18,7 +18,11 @@
     data() {
       return {}
     },
-    computed: {},
+    computed: {
+      dogs() {
+        return this.$store.state.pets
+      }
+    },
     methods: {},
     components: {
       Dog

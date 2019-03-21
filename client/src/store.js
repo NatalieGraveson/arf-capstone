@@ -42,7 +42,8 @@ export default new Vuex.Store({
     },
     setActiveOwner(state, data) {
       state.activeOwner = data
-    }
+    },
+
   },
   actions: {
     //#region -- AUTH STUFF --
@@ -101,12 +102,8 @@ export default new Vuex.Store({
     getActiveOwner({ commit, dispatch }, ownerId) {
       api.get('employee/petowners/' + ownerId)
         .then(res => {
-<<<<<<< HEAD
-          commit('setOwner', res.data)
-=======
           console.log(res)
           commit('setActiveOwner', res.data)
->>>>>>> bc716c2eac93f4a82fc1dae4d8e7cc26b78ed608
         })
     },
     //#endregion
