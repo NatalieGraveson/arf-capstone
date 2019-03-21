@@ -1,6 +1,6 @@
 <template>
    <div class="card">
-      PET PROFILE
+      <!-- PET PROFILE -->
    </div>
 </template>
 

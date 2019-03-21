@@ -31,7 +31,6 @@ export default new Vuex.Store({
       state.user = user
     },
     addOwner(state, data) {
-      debugger
       state.owners.push(data)
     },
     deleteOwner(state, data) {
@@ -83,7 +82,6 @@ export default new Vuex.Store({
       api.post('employee/petowners/', payload)
         .then(res => {
           console.log(res)
-          debugger
           commit('addOwner', res.data)
           router.push({ name: 'Profile', params: { id: res.data._id } })
         })
@@ -96,20 +94,16 @@ export default new Vuex.Store({
         })
     },
     getOwners({ commit, dispatch }, payload) {
-      debugger
-      api.get('employee/petowners')
-        .then(res => {
-          console.log(res)
-          commit('setOwners', res.data)
-        })
+      commit('setOwners', res.data)
+    })
     },
-    getOwner({ commit, dispatch }, payload) {
-      api.get('owners/' + payload.ownerId)
-        .then(res => {
-          console.log(res)
-          commit('setOwner', res.data)
-        })
-    }
+getOwner({ commit, dispatch }, payload) {
+  api.get('owners/' + payload.ownerId)
+    .then(res => {
+      console.log(res)
+      commit('setOwner', res.data)
+    })
+}
     //#endregion
   }
 })

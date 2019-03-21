@@ -1,7 +1,32 @@
 <template>
-  <div class="card ">
-    OWNER PROFILE
+  <div class="row card">
+    <div class="col-12">
+      <h1>Owner Information</h1>
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <hr>
+          <h6>Name: {{owner.name}}</h6>
+          <hr>
+          <h6>Address: {{owner.address}}</h6>
+          <hr>
+          <h6>Phone Number: {{owner.phone}}</h6>
+        </div>
+        <div class="col-md-6 col-12">
+          <hr>
+          <h3>Emergency Contact</h3>
+          <hr>
+          <h6>Name: {{owner.eContactName}}</h6>
+          <hr>
+          <h6>Phone Number: {{owner.eContactNumber}}</h6>
+        </div>
+        <div class="col-12">
+          <br>
+          <h4>Pets</h4>
 
+        </div>
+
+      </div>
+    </div>
   </div>
 </template>
 
