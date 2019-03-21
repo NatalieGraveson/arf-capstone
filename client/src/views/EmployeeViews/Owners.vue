@@ -11,6 +11,9 @@
   export default {
     name: "",
     props: [],
+    mounted() {
+      this.$store.dispatch("getOwners")
+    },
     data() {
       return {}
     },

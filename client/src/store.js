@@ -96,17 +96,18 @@ export default new Vuex.Store({
         })
     },
     getOwners({ commit, dispatch }, payload) {
-      api.get('owners')
+      debugger
+      api.get('employee/petowners')
         .then(res => {
           console.log(res)
-          commit('setOwners', res.data.results)
+          commit('setOwners', res.data)
         })
     },
     getOwner({ commit, dispatch }, payload) {
       api.get('owners/' + payload.ownerId)
         .then(res => {
           console.log(res)
-          commit('setOwner', res.data.results)
+          commit('setOwner', res.data)
         })
     }
     //#endregion
