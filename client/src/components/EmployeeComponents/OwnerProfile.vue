@@ -1,6 +1,7 @@
 <template>
   <div class="card ">
     OWNER PROFILE
+
   </div>
 </template>
 
@@ -11,10 +12,17 @@
     data() {
       return {}
     },
+    mounted() {
+      this.$store.dispatch('getOwners')
+
+    },
     computed: {
       id() {
         return this.$route.params.id
-      }
+      },
+      owner() {
+        return this.$store.state.owners.find(o => o._id == this.$route.params.id) || {}
+      },
     },
     methods: {},
     components: {}
