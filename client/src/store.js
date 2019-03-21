@@ -44,9 +44,6 @@ export default new Vuex.Store({
     setActiveOwner(state, data) {
       state.activeOwner = data
     },
-<<<<<<< HEAD
-
-=======
     addPet(state, data) {
       state.pets.push(data)
     },
@@ -59,7 +56,6 @@ export default new Vuex.Store({
     setActivePet(state, data) {
       state.activePet = data
     },
->>>>>>> 9a268960f3f6f87593c66abf167ae281930e7692
   },
   actions: {
     //#region -- AUTH STUFF --
