@@ -5,7 +5,7 @@ let baseRoute = '/petowners'
 //GET ALL
 //FIX ME
 router.get(baseRoute, (req, res, next) => {
-  PetOwners.find({ identityId: req.session.uid })
+  PetOwners.find({})
     .then(data => {
       res.send(data)
     })
