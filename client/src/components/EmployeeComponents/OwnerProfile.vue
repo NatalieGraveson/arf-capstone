@@ -21,10 +21,13 @@
         </div>
         <div class="col-12">
           <br>
-          <h4>Pets</h4>
-
+          <h4>Exisitng Pets Live Here</h4>
         </div>
-
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p> Register pet form</p>
+        </div>
       </div>
     </div>
   </div>
@@ -38,15 +41,16 @@
       return {}
     },
     mounted() {
-      this.$store.dispatch('getOwners')
-
+      if (!this.owner._id) {
+        this.$store.dispatch('getActiveOwner', this.id)
+      }
     },
     computed: {
       id() {
         return this.$route.params.id
       },
       owner() {
-        return this.$store.state.owners.find(o => o._id == this.$route.params.id) || {}
+        return this.$store.state.owners.find(o => o._id == this.$route.params.id) || this.$store.state.activeOwner
       },
     },
     methods: {},

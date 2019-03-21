@@ -24,7 +24,8 @@ export default new Vuex.Store({
     user: {},
     owners: [],
     pets: {},
-    notes: []
+    notes: [],
+    activeOwner: {}
   },
   mutations: {
     setUser(state, user) {
@@ -39,8 +40,8 @@ export default new Vuex.Store({
     setOwners(state, data) {
       state.owners = data
     },
-    setOwner(state, data) {
-      state.owners = data
+    setActiveOwner(state, data) {
+      state.activeOwner = data
     }
   },
   actions: {
@@ -100,13 +101,14 @@ export default new Vuex.Store({
           commit('setOwners', res.data)
         })
     },
-    getOwner({ commit, dispatch }, payload) {
-      api.get('owners/' + payload.ownerId)
+    getActiveOwner({ commit, dispatch }, ownerId) {
+      api.get('employee/petowners/' + ownerId)
         .then(res => {
           console.log(res)
-          commit('setOwner', res.data)
+          commit('setActiveOwner', res.data)
         })
-    }
+    },
     //#endregion
+
   }
 })
