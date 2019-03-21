@@ -31,7 +31,6 @@ export default new Vuex.Store({
       state.user = user
     },
     addOwner(state, data) {
-      debugger
       state.owners.push(data)
     },
     deleteOwner(state, data) {
