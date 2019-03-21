@@ -1,0 +1,38 @@
+<template>
+  <div class="row petdetails">
+    <div class="col-md-10 offset-md-1 col-12">
+      <h1>Profile Page</h1>
+    </div>
+    <div class="col-md-10 offset-md-1 col-12">
+      <owner-profile></owner-profile>
+    </div>
+    <div class="col-md-10 offset-md-1 col-12">
+      <pet-profile></pet-profile>
+    </div>
+  </div>
+</template>
+
+<script>
+  import router from '@/router.js'
+  import OwnerProfile from '@/components/EmployeeComponents/OwnerProfile.vue'
+  import PetProfile from '@/components/EmployeeComponents/PetProfile.vue'
+  export default {
+    name: "",
+    props: [],
+    data() {
+      return {}
+    },
+    computed: {},
+    methods: {},
+    components: {
+      OwnerProfile,
+      PetProfile
+    }
+  }
+</script>
+
+<style>
+  .petdetails {
+    padding-top: 75px;
+  }
+</style>

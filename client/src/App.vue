@@ -9,13 +9,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" @click="$router.push({name:'ELanding'})">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" @click="$router.push({name:'Incidents'})">Incidents</a>
+            <a class="nav-link" @click="$router.push({name:'ELanding'})">Dogs <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" @click="$router.push({name:'Owners'})">Owners</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" @click="$router.push({name:'Incidents'})">Incidents</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" @click="$router.push({name:'Billing'})">Billing</a>

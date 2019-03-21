@@ -22,7 +22,7 @@ let api = Axios.create({
 export default new Vuex.Store({
   state: {
     user: {},
-    owners: {},
+    owners: [],
     pets: {},
     notes: []
   },
@@ -31,6 +31,7 @@ export default new Vuex.Store({
       state.user = user
     },
     addOwner(state, data) {
+      debugger
       state.owners.push(data)
     },
     deleteOwner(state, data) {
@@ -79,11 +80,12 @@ export default new Vuex.Store({
     //#endregion
     //#region -- OWNER STUFF
     createOwner({ commit, state }, payload) {
-      debugger
       api.post('employee/petowners/', payload)
         .then(res => {
           console.log(res)
-          commit('addOwner', res.data.results)
+          debugger
+          commit('addOwner', res.data)
+          router.push({ name: 'Profile', params: { id: res.data._id } })
         })
     },
     deleteOwner({ dispatch }, payload) {

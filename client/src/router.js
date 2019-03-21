@@ -4,7 +4,7 @@ import Login from './views/Login.vue'
 import ELanding from './views/EmployeeViews/ELanding.vue'
 import Incidents from './views/EmployeeViews/Incidents.vue'
 import Owners from './views/EmployeeViews/Owners.vue'
-import PetDetails from './views/EmployeeViews/PetDetails.vue'
+import Profile from './views/EmployeeViews/Profile.vue'
 import Registration from './views/EmployeeViews/Registration.vue'
 import Billing from './views/EmployeeViews/Billing.vue'
 
@@ -37,9 +37,10 @@ export default new Router({
       component: Owners
     },
     {
-      path: '/PetDetails',
-      name: 'PetDetails',
-      component: PetDetails
+      path: '/Profile/:id',
+      name: 'Profile',
+      props: true,
+      component: Profile
     },
     {
       path: '/Registration',

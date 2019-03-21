@@ -28,6 +28,7 @@
 <script>
   export default {
     name: 'RegisterOwner',
+    props: ['ownerData'],
     data() {
       return {
         newPetOwner: {
