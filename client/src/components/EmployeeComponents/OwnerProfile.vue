@@ -26,7 +26,7 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <p> Register pet form</p>
+          <add-pet></add-pet>
         </div>
       </div>
     </div>
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+  import AddPet from '@/components/EmployeeComponents/AddPet.vue'
   export default {
     name: "",
     props: [],
@@ -54,7 +55,9 @@
       },
     },
     methods: {},
-    components: {}
+    components: {
+      AddPet
+    }
   }
 </script>
 <style scoped>

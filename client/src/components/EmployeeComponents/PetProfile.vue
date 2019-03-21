@@ -1,6 +1,7 @@
 <template>
    <div class="card">
       <!-- PET PROFILE -->
+      <add-pet></add-pet>
    </div>
 </template>
 
@@ -13,7 +14,8 @@
       },
       computed: {},
       methods: {},
-      components: {}
+      components: {
+      }
    }
 </script>
 <style scoped>
