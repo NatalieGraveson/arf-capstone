@@ -23,9 +23,10 @@ export default new Vuex.Store({
   state: {
     user: {},
     owners: [],
-    pets: {},
+    pets: [],
     notes: [],
-    activeOwner: {}
+    activeOwner: {},
+    activePet: {}
   },
   mutations: {
     setUser(state, user) {
@@ -42,7 +43,19 @@ export default new Vuex.Store({
     },
     setActiveOwner(state, data) {
       state.activeOwner = data
-    }
+    },
+    addPet(state, data) {
+      state.pets.push(data)
+    },
+    deletePet(state, data) {
+      state.pets.push(data)
+    },
+    setPets(state, data) {
+      state.pets = data
+    },
+    setActivePet(state, data) {
+      state.activePet = data
+    },
   },
   actions: {
     //#region -- AUTH STUFF --
@@ -82,34 +95,64 @@ export default new Vuex.Store({
     createOwner({ commit, state }, payload) {
       api.post('employee/petowners/', payload)
         .then(res => {
+          console.log(res)
           commit('addOwner', res.data)
           router.push({ name: 'Profile', params: { id: res.data._id } })
         })
     },
     deleteOwner({ dispatch }, payload) {
-      api.delete('owners/' + payload.ownerId, payload)
+      api.delete('employee/petowners/' + payload.ownerId, payload)
         .then(res => {
+          console.log(res)
           dispatch('getOwners', payload.ownerId)
         })
     },
     getOwners({ commit, dispatch }, payload) {
       api.get('employee/petowners')
         .then(res => {
+          console.log(res)
           commit('setOwners', res.data)
         })
     },
     getActiveOwner({ commit, dispatch }, ownerId) {
       api.get('employee/petowners/' + ownerId)
         .then(res => {
-<<<<<<< HEAD
-          commit('setOwner', res.data)
-=======
           console.log(res)
           commit('setActiveOwner', res.data)
->>>>>>> bc716c2eac93f4a82fc1dae4d8e7cc26b78ed608
         })
     },
     //#endregion
-
+    //#region --PET STUFF--
+    createPet({ commit, dispatch }, payload) {
+      console.log(payload)
+      api.post('employee/petowners/' + payload.owner + '/pets', payload)
+        .then(res => {
+          console.log(res)
+          commit('addPet', res.data)
+          commit('setActiveOwner', res.data)
+        })
+    },
+    deletePet({ dispatch }, payload) {
+      api.delete('employee/petowners/' + payload.owner + '/pets/' + payload.pet, payload)
+        .then(res => {
+          console.log(res)
+          dispatch('getOwners', payload.ownerId)
+        })
+    },
+    getPets({ commit, dispatch }, payload) {
+      api.get('employee/petowners/all/pets')
+        .then(res => {
+          console.log(res)
+          commit('setPets', res.data)
+        })
+    },
+    getActivePet({ commit, dispatch }, ownerId) {
+      api.get('employee/petowners/' + ownerId)
+        .then(res => {
+          console.log(res)
+          commit('setActivePet', res.data)
+        })
+    },
+    //#endregion
   }
 })
