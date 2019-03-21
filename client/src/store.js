@@ -83,7 +83,6 @@ export default new Vuex.Store({
       api.post('employee/petowners/', payload)
         .then(res => {
           console.log(res)
-          debugger
           commit('addOwner', res.data)
           router.push({ name: 'Profile', params: { id: res.data._id } })
         })
@@ -96,7 +95,6 @@ export default new Vuex.Store({
         })
     },
     getOwners({ commit, dispatch }, payload) {
-      debugger
       api.get('employee/petowners')
         .then(res => {
           console.log(res)
