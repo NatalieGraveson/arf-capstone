@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal"
+    <button v-if="activePet.name" type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal"
       @click="pet=activePet">Edit Pet</button>
   </div>
 </template>

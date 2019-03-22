@@ -1,17 +1,19 @@
 <template>
    <div class="profCard row">
       <div class="col-12">
-         <div class=" pet-card row">
+         <div v-if="activePet.name" class=" pet-card row">
             <div class="col-4">
                <img class="petimg" v-bind:src="activePet.img">
-               <button class=' check btn-success' v-if="!activePet.checkedIn" @click="checkIn">CHECK IN</button>
-               <button class="check btn-danger" v-if="activePet.checkedIn"
-                  @click="activePet.checkedIn = !activePet.checkedIn">CHECK OUT</button>
+               <button class=' check btn-success' v-if="!activePet.checkedIn" @click="checkIn">CHECK
+                  IN</button>
+               <button class="check btn-danger" v-if="activePet.checkedIn" @click="checkOut">CHECK OUT</button>
             </div>
             <div class="col-7 offset-1">
                <edit-pet></edit-pet>
                <p>{{activePet.name}}</p>
                <p>{{pstatus}}</p>
+               <p>{{activePet.breed}}</p>
+               <p>{{activePet.age}}</p>
             </div>
          </div>
          <div class="row notes-card">
@@ -38,9 +40,6 @@
          return {}
       },
       mounted() {
-         // if (!this.pet._id) {
-         //    this.$store.dispatch('getActivePet', this.id)
-         // }
       },
       computed: {
          activePet() {
@@ -60,6 +59,25 @@
                return alert("This pet is already checked in")
             }
             checkedIn = true
+            if (!petName) {
+               return alert("Please select a pet")
+            }
+            let payload = {
+               checkedIn,
+               petId,
+               petName
+            }
+            return this.$store.dispatch('editActivePet', payload)
+         },
+         checkOut() {
+            let { checkedIn, _id: petId, name: petName } = this.$store.state.activePet //destructuring
+            if (checkedIn == false) {
+               return alert("This pet is already checked in")
+            }
+            checkedIn = false
+            if (!petName) {
+               return alert("Please select a pet")
+            }
             let payload = {
                checkedIn,
                petId,

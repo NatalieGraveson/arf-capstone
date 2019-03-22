@@ -180,7 +180,7 @@ export default new Vuex.Store({
       commit('setPetMatches', payload)
 
     },
-    FindOwnerMatches({ commit, dispatch }, payload) {
+    findOwnerMatches({ commit, dispatch }, payload) {
       commit('setOwnerMatches', payload)
     }
     //#endregion

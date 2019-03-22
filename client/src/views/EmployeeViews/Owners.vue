@@ -1,5 +1,6 @@
 <template>
   <div class="row">
+    <OwnerNav class="landNav"></OwnerNav>
     <div class="col-12">
       <h1 class="ownerTitle">Pet Owners</h1>
 
@@ -12,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <owner v-for="owner in owners" :ownerData="owner"></owner>
+          <owner v-for="owner in ownerMatches.length ? ownerMatches : owners" :ownerData="owner"></owner>
         </tbody>
       </table>
     </div>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-  // import OwnerNav from '@components/EmployeeComponents/OwnerNav.vue'
+  import OwnerNav from '@/components/EmployeeComponents/OwnerNav.vue'
   import router from '@/router.js'
   import Owner from '@/components/EmployeeComponents/Owner.vue'
   export default {
@@ -36,12 +37,16 @@
     computed: {
       owners() {
         return this.$store.state.owners
+      },
+      ownerMatches() {
+        return this.$store.state.ownerMatches
       }
+
     },
     methods: {},
     components: {
       Owner,
-      // OwnerNav
+      OwnerNav
     }
   }
 </script>

@@ -27,27 +27,22 @@
     data() {
       return {}
     },
-    computed: {
-
-
-    },
+    computed: {},
     methods: {
-    },
-    findOwnerMatches(e) {
-      let owners = [...this.$store.state.owners]
-      let query = e.target.value.toLowerCase()
-      let matches = owners.filter(owner => owner.name.toLowerCase().includes(query))
-      if (!query) {
-        ownerMatches = []
+      findOwnerMatches(e) {
+        let owners = [...this.$store.state.owners]
+        let query = e.target.value.toLowerCase()
+        let matches = owners.filter(owner => owner.name.toLowerCase().includes(query))
+        if (!query) {
+          matches = []
+        }
+        this.$store.dispatch('findOwnerMatches', matches)
       }
-      this.$store.dispatch('FindOwnerMatches', ownerMatches)
-    },
-    components: {},
+    }
   }
 </script>
 <style>
   .landNav {
-    top: 55px;
     background-color: #424c56;
     z-index: 5;
   }

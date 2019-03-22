@@ -48,6 +48,9 @@
         let pets = [...this.$store.state.pets]
         let query = e.target.value.toLowerCase()
         let matches = pets.filter(pet => pet.name.toLowerCase().includes(query))
+        if (query && !matches.length) {
+          return alert('No Matching Results...')
+        }
         if (!query) {
           matches = []
         }
