@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" @click="$router.push({name:'ELanding'})">Dogs <span class="sr-only">(current)</span></a>
+            <a class="nav-link" @click="$router.push({name:'ELanding'})">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" @click="$router.push({name:'Owners'})">Owners</a>
@@ -24,12 +24,9 @@
             <a class="nav-link" @click="$router.push({name:'Registration'})">Registration</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
-      <div><button class="btn logoutbtn" @click="logout"><i class="fas fa-sign-out-alt"></i> Logout</button></div>
+      <div><button class="btn logoutbtn btn-outline-light" @click="logout"><i class="fas fa-sign-out-alt"></i>
+          Logout</button></div>
     </nav>
 
     <router-view />
