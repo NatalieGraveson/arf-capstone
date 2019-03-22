@@ -130,6 +130,7 @@ export default new Vuex.Store({
           console.log(res)
           commit('addPet', res.data)
           commit('setActiveOwner', res.data)
+          dispatch('getPetsByOwnerId', res.data)
         })
     },
     deletePet({ dispatch }, payload) {
@@ -146,8 +147,15 @@ export default new Vuex.Store({
           commit('setPets', res.data)
         })
     },
-    getActivePet({ commit, dispatch }, ownerId) {
-      api.get('employee/petowners/' + ownerId)
+    getPetsByOwnerId({ commit, dispatch }, ownerId) {
+      api.get('employee/petowners/' + ownerId + '/pets')
+        .then(res => {
+          console.log(res)
+          commit('setPets', res.data)
+        })
+    },
+    getActivePet({ commit, dispatch }, payload) {
+      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.id)
         .then(res => {
           console.log(res)
           commit('setActivePet', res.data)
