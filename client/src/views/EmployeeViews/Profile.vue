@@ -35,4 +35,8 @@
   .petdetails {
     padding-top: 75px;
   }
+
+  h1 {
+    margin: -15px 0px -10px 0px;
+  }
 </style>
