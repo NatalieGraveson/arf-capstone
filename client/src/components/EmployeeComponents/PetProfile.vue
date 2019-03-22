@@ -1,17 +1,23 @@
 <template>
    <div class="card">
-      PET PROFILE
+      <p>{{petData.name}}</p>
    </div>
 </template>
 
 <script>
    export default {
-      name: "",
-      props: [],
+      name: "PetProfile",
+      props: ['petData'],
       data() {
          return {}
       },
-      computed: {},
+      mounted() {
+         if (!this.pet._id) {
+            this.$store.dispatch('getActivePet', this.id)
+         }
+      },
+      computed: {
+      },
       methods: {},
       components: {
       }
@@ -19,9 +25,7 @@
 </script>
 <style>
    .card {
-      /* background-image: url('https://vignette.wikia.nocookie.net/edwikia/images/0/0d/Plank.png/revision/latest/scale-to-width-down/338?cb=20170726093347'); */
-      /* background-repeat: no-repeat; */
-      /* background-size: 400px 150px; */
+
       background-color: rgba(0, 0, 0, 0.267);
       border-top-color: black;
       border-right-color: black;
