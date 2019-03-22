@@ -21,7 +21,7 @@
         </div>
         <div class="col-12">
           <br>
-          <h4>Exisitng Pets Live Here</h4>
+          <h4 v-for="pet in pets">{{pet.name}}</h4>
         </div>
       </div>
       <div class="row">
@@ -45,6 +45,7 @@
       if (!this.owner._id) {
         this.$store.dispatch('getActiveOwner', this.id)
       }
+      this.$store.dispatch('getPetsByOwnerId', this.id)
     },
     computed: {
       id() {
@@ -53,6 +54,9 @@
       owner() {
         return this.$store.state.owners.find(o => o._id == this.$route.params.id) || this.$store.state.activeOwner
       },
+      pets() {
+        return this.$store.state.pets
+      }
     },
     methods: {},
     components: {

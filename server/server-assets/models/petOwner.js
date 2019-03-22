@@ -12,7 +12,7 @@ let schema = new Schema({
   balance: { type: String },
   email: { type: String },
   // petId: { type: ObjectId, ref: 'Pet' },
-  pets: [{ type: ObjectId, ref: 'Pet' }],
+  pets: [{ type : ObjectId, ref: 'Pet' }],
   noteId: { type: ObjectId, ref: 'Note' },
   identityId: { type: ObjectId, ref: 'Identity' }
 })
