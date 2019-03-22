@@ -54,7 +54,6 @@
 <style scoped>
   .elheadr {
     padding: 5vh;
-    margin-top: 50px;
 
   }
 
