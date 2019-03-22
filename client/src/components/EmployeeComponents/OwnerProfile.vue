@@ -63,7 +63,6 @@
     },
     methods: {
       setActivePet(id) {
-        debugger
         let payload = {
           petOwnerId: this.owner._id,
           petId: id
@@ -111,5 +110,6 @@
     margin: 0vh 0vw 1vh 9.2vw;
     display: flex;
     justify-content: space-around;
+    cursor: pointer;
   }
 </style>

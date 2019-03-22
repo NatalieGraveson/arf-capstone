@@ -165,7 +165,6 @@ export default new Vuex.Store({
       api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId)
         .then(res => {
           console.log(res)
-          debugger
           commit('setActivePet', payload)
         })
     }
