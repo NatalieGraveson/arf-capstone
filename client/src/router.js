@@ -1,11 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// @ts-ignore
 import Login from './views/Login.vue'
+// @ts-ignore
 import ELanding from './views/EmployeeViews/ELanding.vue'
+// @ts-ignore
 import Incidents from './views/EmployeeViews/Incidents.vue'
+// @ts-ignore
 import Owners from './views/EmployeeViews/Owners.vue'
+// @ts-ignore
 import Profile from './views/EmployeeViews/Profile.vue'
+// @ts-ignore
 import Registration from './views/EmployeeViews/Registration.vue'
+// @ts-ignore
 import Billing from './views/EmployeeViews/Billing.vue'
 
 Vue.use(Router)
