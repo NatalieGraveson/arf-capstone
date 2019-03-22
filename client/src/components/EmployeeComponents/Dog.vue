@@ -1,6 +1,6 @@
 <template>
-  <div class="col-12 col-md-3 mb-3 petcards d-flex justify-content-center card-group">
-    <div class="card border border-outline-light bg-transparent w-100">
+  <div class="col-12 col-md-3 mb-3 petcards d-flex justify-content-center card-group click">
+    <div @click="$router.push({name: 'Profile', params: {id:dogData.petOwnerId}})" class="card bg-transparent w-100">
       <img v-bind:src="dogImg" class="card-img-top">
       <div class="card-body">
         <p class="card-text">{{dogData.name}}
@@ -13,7 +13,7 @@
 <script>
   export default {
     name: "dog",
-    props: ["dogData"],
+    props: ["dogData", "ownerData"],
     mounted(
 
     ) {
@@ -35,9 +35,14 @@
     flex-direction: row;
     color: white;
     text-shadow: 1px 2px black;
+
   }
 
   .card-img-top {
     min-height: 38vh;
+  }
+
+  .click:hover {
+    cursor: pointer;
   }
 </style>

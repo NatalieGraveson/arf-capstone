@@ -1,5 +1,5 @@
 <template>
-   <div class="card">
+   <div class="card profCard">
       <!-- PET PROFILE -->
       <add-pet></add-pet>
    </div>
@@ -19,7 +19,7 @@
    }
 </script>
 <style>
-   .card {
+   .profCard {
       /* background-image: url('https://vignette.wikia.nocookie.net/edwikia/images/0/0d/Plank.png/revision/latest/scale-to-width-down/338?cb=20170726093347'); */
       /* background-repeat: no-repeat; */
       /* background-size: 400px 150px; */
