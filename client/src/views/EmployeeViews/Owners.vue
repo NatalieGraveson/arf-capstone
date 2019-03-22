@@ -46,5 +46,6 @@
 <style>
   .ownerTitle {
     margin-top: 100px;
+    margin-bottom: 47px;
   }
 </style>

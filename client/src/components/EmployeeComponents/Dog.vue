@@ -1,6 +1,7 @@
 <template>
   <div class="col-12 col-md-3 mb-3 petcards d-flex justify-content-center card-group click">
-    <div @click="$router.push({name: 'Profile', params: {id:dogData.petOwnerId}})" class="card bg-transparent w-100">
+    <div @click="$router.push({name: 'Profile', params: {id:dogData.petOwnerId}})"
+      class="card border border-light bg-transparent w-100">
       <img v-bind:src="dogImg" class="card-img-top">
       <div class="card-body">
         <p class="card-text">{{dogData.name}}

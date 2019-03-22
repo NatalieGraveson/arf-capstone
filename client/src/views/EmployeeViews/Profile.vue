@@ -7,7 +7,7 @@
       <owner-profile></owner-profile>
     </div>
     <div class="col-md-10 offset-md-1 col-12">
-      <pet-profile :petData='pet'></pet-profile>
+      <pet-profile></pet-profile>
     </div>
   </div>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" v-show="$route.name != 'login'">
+
+    <nav class="navbar navbar-expand-lg navbar-light" v-show="$route.name != 'login'">
       <a class="navbar-brand" href="#" @click="$router.push({name:'ELanding'})">A r f</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,12 +26,14 @@
           </li>
         </ul>
       </div>
-      <div><button class="btn logoutbtn btn-outline-light" @click="logout"><i class="fas fa-sign-out-alt"></i>
+      <div><button class="btn logoutbtn btn-outline-secondary" @click="logout"><i class="fas fa-sign-out-alt"></i>
           Logout</button></div>
     </nav>
+    <div class="container-fluid">
 
-    <router-view />
-
+      <router-view />
+    </div>
+    <footer></footer>
   </div>
 </template>
 
@@ -60,12 +63,14 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: black;
-    background-image: url('http://i.imgur.com/mOL5g.jpg');
+    /* background-image: url('http://i.imgur.com/mOL5g.jpg'); */
+    background-image: linear-gradient(#89a6b8, #384349);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     min-height: 100vh;
     align-content: flex-start;
+
 
   }
 
@@ -84,10 +89,14 @@
 
   .navbar {
     position: fixed;
-    right: 25px;
-    left: 25px;
-    z-index: 4;
+    right: 0px;
+    left: 0px;
+    z-index: 7;
     cursor: pointer;
-    border-radius: 0 0 15px 15px
+    background-color: #e9eaea;
+  }
+
+  footer {
+    padding-bottom: 50px;
   }
 </style>

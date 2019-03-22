@@ -16,7 +16,7 @@
           <hr>
           <p>Phone Number: {{owner.eContactNumber}}</p>
         </div>
-        <div class="col-4 col-md-4 petnames" v-for="pet in pets" @click="setActivePet(pet._id)">
+        <div class="col-4 col-md-4 petnames" v-for="pet in pets" @click="getActivePet(pet._id)">
           <p>{{pet.name}}</p>
         </div>
       </div>
@@ -58,16 +58,18 @@
           this.$store.state.activePet
       },
       activePet() {
-        return this.$store.state.activePet
+        return
+
+        this.$store.state.activePet
       }
     },
     methods: {
-      setActivePet(id) {
+      getActivePet(id) {
         let payload = {
           petOwnerId: this.owner._id,
           petId: id
         }
-        this.$store.dispatch('setActivePet', payload)
+        this.$store.dispatch('getActivePet', payload)
       }
     },
     components: {

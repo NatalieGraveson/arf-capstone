@@ -5,7 +5,7 @@
       <div class="col-12 elheadr ">
         <h1 class="mb-5 text-white">All Animals</h1>
         <div class="row">
-          <dog v-for="dog in dogs" :dogData="dog"></dog>
+          <dog v-for="dog in petMatches.length ? petMatches : dogs" :dogData="dog"></dog>
         </div>
       </div>
     </div>
@@ -29,22 +29,12 @@
     computed: {
       dogs() {
         return this.$store.state.pets
-      }
-    },
-    methods: {
-      sortPetName() {
-        let pets = this.$store.state.pets
-        pets.sort(function (a, b) {
-          return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-        })
       },
-      sortCheckedIn() {
-        let pets = this.$store.state.pets
-        pets.sort(function (a, b) {
-          return b.checkedIn > a.checkedIn ? 1 : -1
-        })
+      petMatches() {
+        return this.$store.state.petMatches
       }
     },
+    methods: {},
     components: {
       Dog,
       ELandingNav

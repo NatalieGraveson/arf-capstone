@@ -26,9 +26,13 @@ export default new Vuex.Store({
     pets: [],
     notes: [],
     activeOwner: {},
-    activePet: {}
+    activePet: {},
+    petMatches: []
   },
   mutations: {
+    setPetMatches(state, data) {
+      state.petMatches = data
+    },
     setUser(state, user) {
       state.user = user
     },
@@ -155,18 +159,22 @@ export default new Vuex.Store({
         })
     },
     getActivePet({ commit, dispatch }, payload) {
-      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.id)
+      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId, payload)
         .then(res => {
           console.log(res)
           commit('setActivePet', res.data)
         })
     },
-    setActivePet({ commit, dispatch }, payload) {
-      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId)
+
+    editActivePet({ commit, dispatch }, payload) {
+      api.put('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId, payload)
         .then(res => {
-          console.log(res)
-          commit('setActivePet', payload)
+          dispatch('getActivePet', payload)
         })
+    },
+    petMatches({ commit, dispatch }, payload) {
+      commit('setPetMatches', payload)
+
     }
     //#endregion
   }
