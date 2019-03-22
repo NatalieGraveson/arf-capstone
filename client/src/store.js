@@ -27,9 +27,13 @@ export default new Vuex.Store({
     notes: [],
     activeOwner: {},
     activePet: {},
-    petMatches: []
+    petMatches: [],
+    ownerMatches: [],
   },
   mutations: {
+    setOwnerMatches(state, data) {
+      state.ownerMatches = data
+    },
     setPetMatches(state, data) {
       state.petMatches = data
     },
@@ -175,6 +179,9 @@ export default new Vuex.Store({
     petMatches({ commit, dispatch }, payload) {
       commit('setPetMatches', payload)
 
+    },
+    FindOwnerMatches({ commit, dispatch }, payload) {
+      commit('setOwnerMatches', payload)
     }
     //#endregion
   }

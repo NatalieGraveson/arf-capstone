@@ -20,6 +20,7 @@
 </template>
 
 <script>
+  // import OwnerNav from '@components/EmployeeComponents/OwnerNav.vue'
   import router from '@/router.js'
   import Owner from '@/components/EmployeeComponents/Owner.vue'
   export default {
@@ -39,7 +40,8 @@
     },
     methods: {},
     components: {
-      Owner
+      Owner,
+      // OwnerNav
     }
   }
 </script>

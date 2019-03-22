@@ -13,13 +13,13 @@
             <form class="row" @submit.prevent='editPet()'>
               <div class="col-12">
                 <h3>Pet Information</h3>
-                <input class="formfield" type="text" v-model="editPet.name" name="Name" required>
+                <input class="formfield" type="text" v-model="pet.name" name="Name" required>
                 <br>
-                <input class="formfield" type="text" v-model="editPet.breed" name="Breed" placeholder="Breed:">
+                <input class="formfield" type="text" v-model="pet.breed" name="Breed">
                 <br>
-                <input class="formfield" type="number" v-model="editPet.age" name="Age" placeholder="Age:">
+                <input class="formfield" type="number" v-model="pet.age" name="Age">
                 <br>
-                <input class="formfield" type="url" v-model="editPet.img" name="Age" placeholder="Img:">
+                <input class="formfield" type="url" v-model="pet.img" name="Img">
               </div>
               <div class="col-12 mt-3">
                 <button class="btn btn-primary" type="submit">Submit</button>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal"
-      @click="editPet=activePet">Edit Pet</button>
+      @click="pet=activePet">Edit Pet</button>
   </div>
 </template>
 
@@ -42,16 +42,15 @@
     name: 'EditPet',
     data() {
       return {
-        editPet: {
-          name: this.$store.state.activePet.name,
-          breed: this.$store.state.activePet.breed,
-          age: this.$store.state.activePet.age,
-          petOwnerId: this.$route.params.id,
-          img: this.$store.state.activePet.img,
+        pet: {
         }
       }
     },
-    computed: {},
+    computed: {
+      activePet() {
+        return this.$store.state.activePet
+      }
+    },
     methods: {
       editPet() {
         this.$store.dispatch('editPet', this.newPet)

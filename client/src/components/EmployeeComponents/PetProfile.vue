@@ -59,7 +59,7 @@
             if (checkedIn) {
                return alert("This pet is already checked in")
             }
-            checkedIn == !checkedIn
+            checkedIn = true
             let payload = {
                checkedIn,
                petId,
