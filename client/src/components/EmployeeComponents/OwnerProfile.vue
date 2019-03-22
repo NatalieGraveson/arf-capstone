@@ -1,27 +1,23 @@
 <template>
   <div class="row newCard">
     <div class="col-12">
-      <h1>Owner Information</h1>
       <div class="row">
         <div class="col-md-6 col-12">
+          <p>Name: {{owner.name}}</p>
           <hr>
-          <h6>Name: {{owner.name}}</h6>
+          <p>Address: {{owner.address}}</p>
           <hr>
-          <h6>Address: {{owner.address}}</h6>
-          <hr>
-          <h6>Phone Number: {{owner.phone}}</h6>
+          <p>Phone Number: {{owner.phone}}</p>
         </div>
         <div class="col-md-6 col-12">
+          <p>Emergency Contact</p>
           <hr>
-          <h3>Emergency Contact</h3>
+          <p>Name: {{owner.eContactName}}</p>
           <hr>
-          <h6>Name: {{owner.eContactName}}</h6>
-          <hr>
-          <h6>Phone Number: {{owner.eContactNumber}}</h6>
+          <p>Phone Number: {{owner.eContactNumber}}</p>
         </div>
-        <div class="col-12">
-          <br>
-          <h4 v-for="pet in pets">{{pet.name}}</h4>
+        <div class="col-4 col-md-4 petnames" v-for="pet in pets" @click="setActivePet(pet._id)">
+          <p>{{pet.name}}</p>
         </div>
       </div>
       <div class="row">
@@ -56,9 +52,25 @@
       },
       pets() {
         return this.$store.state.pets
+      },
+      pet() {
+        return this.$store.state.pets.find(p => p._id == this.$route.params.id) ||
+          this.$store.state.activePet
+      },
+      activePet() {
+        return this.$store.state.activePet
       }
     },
-    methods: {},
+    methods: {
+      setActivePet(id) {
+        debugger
+        let payload = {
+          petOwnerId: this.owner._id,
+          petId: id
+        }
+        this.$store.dispatch('setActivePet', payload)
+      }
+    },
     components: {
       AddPet
     }
@@ -85,5 +97,19 @@
     /* max-width: 22vw;
     min-height: 18vh; */
     border-radius: 20px;
+  }
+
+  hr {
+    margin-top: -12px;
+    margin-bottom: 0px;
+    background-color: rgb(71, 71, 71);
+  }
+
+  .petnames {
+    background-color: rgba(0, 0, 0, 0.603);
+    border-radius: 10px;
+    margin: 0vh 0vw 1vh 9.2vw;
+    display: flex;
+    justify-content: space-around;
   }
 </style>

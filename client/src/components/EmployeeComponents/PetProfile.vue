@@ -1,7 +1,6 @@
 <template>
    <div class="card">
-      <!-- PET PROFILE -->
-      <add-pet></add-pet>
+      PET PROFILE
    </div>
 </template>
 

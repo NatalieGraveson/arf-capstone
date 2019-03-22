@@ -161,6 +161,14 @@ export default new Vuex.Store({
           commit('setActivePet', res.data)
         })
     },
+    setActivePet({ commit, dispatch }, payload) {
+      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId)
+        .then(res => {
+          console.log(res)
+          debugger
+          commit('setActivePet', payload)
+        })
+    }
     //#endregion
   }
 })
