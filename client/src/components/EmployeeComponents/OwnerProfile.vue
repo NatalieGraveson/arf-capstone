@@ -8,6 +8,8 @@
           <p>Address: {{owner.address}}</p>
           <hr>
           <p>Phone Number: {{owner.phone}}</p>
+          <hr>
+          <p>Email: {{owner.email}}</p>
         </div>
         <div class="col-md-6 col-12">
           <p>Emergency Contact</p>
@@ -16,7 +18,8 @@
           <hr>
           <p>Phone Number: {{owner.eContactNumber}}</p>
         </div>
-        <div class="col-4 col-md-4 petnames" v-for="pet in pets" @click="getActivePet(pet._id)">
+        <edit-owner></edit-owner>
+        <div class="col-4 col-md-4 petnames mt-3" v-for="pet in pets" @click="getActivePet(pet._id)">
           <p>{{pet.name}}</p>
         </div>
       </div>
@@ -31,6 +34,7 @@
 
 <script>
   import AddPet from '@/components/EmployeeComponents/AddPet.vue'
+  import EditOwner from '@/components/EmployeeComponents/EditOwner.vue'
   export default {
     name: "",
     props: [],
@@ -73,7 +77,8 @@
       }
     },
     components: {
-      AddPet
+      AddPet,
+      EditOwner
     }
   }
 </script>

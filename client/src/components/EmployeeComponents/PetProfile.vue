@@ -2,18 +2,17 @@
    <div class="profCard row">
       <div class="col-12">
          <div v-if="activePet.name" class=" pet-card row">
-            <div class="col-4">
+            <div class="col-12 col-md-4">
+               <h2>{{activePet.name}}</h2>
+               <button class=' check btn-success' v-if="!activePet.checkedIn" @click="checkIn">CHECKIN</button>
+               <button class="check btn-danger" v-if="activePet.checkedIn" @click="checkOut">CHECK OUT</button><br>
                <img class="petimg" v-bind:src="activePet.img">
-               <button class=' check btn-success' v-if="!activePet.checkedIn" @click="checkIn">CHECK
-                  IN</button>
-               <button class="check btn-danger" v-if="activePet.checkedIn" @click="checkOut">CHECK OUT</button>
             </div>
-            <div class="col-7 offset-1">
+            <div class="col-12 offset-md-1 col-md-7">
+               <h5>{{pstatus}}</h5>
+               <p>Breed: {{activePet.breed}}</p>
+               <p>Age: {{activePet.age}}</p>
                <edit-pet></edit-pet>
-               <p>{{activePet.name}}</p>
-               <p>{{pstatus}}</p>
-               <p>{{activePet.breed}}</p>
-               <p>{{activePet.age}}</p>
             </div>
          </div>
          <div class="row notes-card">
@@ -99,7 +98,8 @@
    }
 
    .petimg {
-      max-width: 25vw;
+      width: 150;
+      height: 300px;
       border-radius: 10px;
       box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.589);
    }

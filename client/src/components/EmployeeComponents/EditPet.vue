@@ -11,15 +11,15 @@
           </div>
           <div class="modal-body">
             <form class="row" @submit.prevent='editPet()'>
-              <div class="col-12">
+              <div class="col-md-8 offset-md-1 col-10 offset-1 form-fields">
                 <h3>Pet Information</h3>
-                <input class="formfield" type="text" v-model="pet.name" name="Name" required>
+                Name:<input class="formfielder" type="text" v-model="pet.name" name="Name" required>
                 <br>
-                <input class="formfield" type="text" v-model="pet.breed" name="Breed">
+                Breed:<input class="formfielder" type="text" v-model="pet.breed" name="Breed">
                 <br>
-                <input class="formfield" type="number" v-model="pet.age" name="Age">
+                Age:<input class="formfielder" type="number" v-model="pet.age" name="Age">
                 <br>
-                <input class="formfield" type="url" v-model="pet.img" name="Img">
+                Image:<input class="formfielder" type="url" v-model="pet.img" name="Img">
               </div>
               <div class="col-12 mt-3">
                 <button class="btn btn-primary" type="submit">Submit</button>
@@ -53,7 +53,8 @@
     },
     methods: {
       editPet() {
-        this.$store.dispatch('editPet', this.newPet)
+        debugger
+        this.$store.dispatch('editPet', this.pet)
       }
     },
     components: {}
@@ -69,5 +70,14 @@
   .modal-content {
     background-color: rgb(4, 4, 136);
     border-radius: 20px;
+  }
+
+  .form-fields {
+    text-align: right;
+  }
+
+  .formfielder {
+    width: 175px;
+    margin-top: 7px;
   }
 </style>
