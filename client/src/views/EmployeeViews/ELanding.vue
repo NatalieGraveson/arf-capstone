@@ -21,7 +21,6 @@
     props: [],
     mounted() {
       this.$store.dispatch('getPets')
-
     },
     data() {
       return {}
@@ -34,7 +33,14 @@
         return this.$store.state.petMatches
       }
     },
-    methods: {},
+    methods: {
+      sortPetName() {
+        let pets = this.$store.state.pets
+        pets.sort(function (a, b) {
+          return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+        })
+      }
+    },
     components: {
       Dog,
       ELandingNav

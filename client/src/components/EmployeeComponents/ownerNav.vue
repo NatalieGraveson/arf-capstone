@@ -11,8 +11,7 @@
             Sort By
           </button>
           <div class="dropdown-menu">
-            <a @click='' class="dropdown-item" href="#"></a>
-            <a @click='' class="dropdown-item" href="#"></a>
+            <a @click='sortOwnerName' class="dropdown-item" href="#">A-Z</a>
           </div>
         </div>
       </form>
@@ -29,10 +28,19 @@
     },
     computed: {},
     methods: {
+      sortOwnerName() {
+        let owners = this.$store.state.owners
+        owners.sort(function (a, b) {
+          return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+        })
+      },
       findOwnerMatches(e) {
         let owners = [...this.$store.state.owners]
         let query = e.target.value.toLowerCase()
         let matches = owners.filter(owner => owner.name.toLowerCase().includes(query))
+        if (query && !matches.length) {
+          return alert('No Matching Results...')
+        }
         if (!query) {
           matches = []
         }

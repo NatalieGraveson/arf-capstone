@@ -27,6 +27,9 @@
     data() {
       return {}
     },
+    mounted() {
+
+    },
     computed: {
 
 
@@ -55,6 +58,7 @@
           matches = []
         }
         this.$store.dispatch('petMatches', matches)
+
 
         //dispatch matches to the store and save in your state
         //then on your display dogs page you can show either all dogs if search results is empty 
