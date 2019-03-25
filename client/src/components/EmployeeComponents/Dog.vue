@@ -24,7 +24,7 @@
     },
     computed: {
       dogImg() {
-        return this.dogData.img || "//placehold.it/200x200/"
+        return this.dogData.img
       }
     },
     methods: {},
