@@ -1,21 +1,35 @@
 <template>
-  <div class="login row">
-    <div class="col-12">
-      <form v-if="loginForm" @submit.prevent="loginUser">
-        <input type="email" v-model="creds.email" placeholder="email">
-        <input type="password" v-model="creds.password" placeholder="password">
-        <button type="submit">Login</button>
-      </form>
-      <form v-else @submit.prevent="register">
-        <input type="text" v-model="newUser.name" placeholder="name">
-        <input type="email" v-model="newUser.email" placeholder="email">
-        <input type="password" v-model="newUser.password" placeholder="password">
-        <button type="submit">Create Account</button>
-      </form>
+  <div class="login">
+    <div class="row cuteDog">
+      <div class="col-12">
+        <form v-if="loginForm" @submit.prevent="loginUser">
+          <input type="email" v-model="creds.email" placeholder="email">
+          <input type="password" v-model="creds.password" placeholder="password">
+          <button type="submit">Login</button>
+        </form>
+        <form v-else @submit.prevent="register">
+          <input type="text" v-model="newUser.name" placeholder="name">
+          <input type="email" v-model="newUser.email" placeholder="email">
+          <input type="password" v-model="newUser.password" placeholder="password">
+          <button type="submit">Create Account</button>
+        </form>
+      </div>
+      <div class="action col-12" @click="loginForm = !loginForm">
+        <p v-if="loginForm">No account? Click here to Register</p>
+        <p v-else>Already have an account? Click here to Login</p>
+      </div>
     </div>
-    <div class="action col-12" @click="loginForm = !loginForm">
-      <p v-if="loginForm">No account? Click here to Register</p>
-      <p v-else>Already have an account? Click here to Login</p>
+    <div class="col-12">
+
+    </div>
+    <div class="col-12">
+
+    </div>
+    <div class="col-12">
+
+    </div>
+    <div class="col-12">
+
     </div>
   </div>
 </template>
@@ -52,10 +66,11 @@
 <style>
   .action {
     cursor: pointer;
+    color: white;
+    text-shadow: -1px -1px black;
   }
 
-  .login {
-    padding: 50px;
+  .cuteDog {
     background-image: url('https://lostdogsillinois.org/wp-content/uploads/2016/04/dog-close-up-backgrounds-1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
