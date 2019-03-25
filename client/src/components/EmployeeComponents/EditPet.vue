@@ -53,7 +53,6 @@
     },
     methods: {
       editPet() {
-        debugger
         this.$store.dispatch('editPet', this.pet)
       }
     },
