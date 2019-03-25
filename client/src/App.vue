@@ -1,39 +1,42 @@
 <template>
-  <div id="app" class="container-fluid">
-
-    <nav class="navbar navbar-expand-lg navbar-light" v-show="$route.name != 'login'">
-      <a class="navbar-brand" href="#" @click="$router.push({name:'ELanding'})">A r f</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" @click="$router.push({name:'ELanding'})">Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" @click="$router.push({name:'Owners'})">Owners</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" @click="$router.push({name:'Incidents'})">Incidents</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" @click="$router.push({name:'Billing'})">Billing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" @click="$router.push({name:'Registration'})">Registration</a>
-          </li>
-        </ul>
-      </div>
-      <div><button class="btn logoutbtn btn-outline-secondary" @click="logout"><i class="fas fa-sign-out-alt"></i>
-          Logout</button></div>
-    </nav>
+  <div id="app">
     <div class="container-fluid">
-
+      <nav class="navbar navbar-expand-lg navbar-light" v-show="$route.name != 'login'">
+        <a class="navbar-brand" href="#" @click="$router.push({name:'ELanding'})">A r f</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" @click="$router.push({name:'ELanding'})">Home<span
+                  class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" @click="$router.push({name:'Owners'})">Owners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" @click="$router.push({name:'Incidents'})">Incidents</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" @click="$router.push({name:'Billing'})">Billing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" @click="$router.push({name:'Registration'})">Registration</a>
+            </li>
+          </ul>
+        </div>
+        <div><button class="btn logoutbtn btn-outline-secondary" @click="logout"><i class="fas fa-sign-out-alt"></i>
+            Logout</button></div>
+      </nav>
+    </div>
+    <div class="container-fluid">
       <router-view />
     </div>
-    <footer></footer>
+    <footer>
+      <p>Footer Goes Here</p>
+    </footer>
   </div>
 </template>
 
@@ -97,6 +100,6 @@
   }
 
   footer {
-    padding-bottom: 50px;
+    padding-bottom: 3vh;
   }
 </style>
