@@ -24,7 +24,7 @@
     },
     computed: {
       dogImg() {
-        return this.dogData.img
+        return this.dogData.img || "../assets/dogholder.png"
       }
     },
     methods: {},

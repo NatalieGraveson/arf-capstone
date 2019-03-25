@@ -10,8 +10,8 @@
             </div>
             <div class="col-12 offset-md-1 col-md-7">
                <h5>{{pstatus}}</h5>
-               <p>{{pet.checkIn}}</p>
-               <p>{{pet.checkOut}}</p>
+               <p>{{activePet.checkIn}}</p>
+               <p>{{activePet.checkOut}}</p>>
                <p>Breed: {{activePet.breed}}</p>
                <edit-pet></edit-pet>
             </div>

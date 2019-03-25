@@ -19,8 +19,13 @@
         <p v-else>Already have an account? Click here to Login</p>
       </div>
     </div>
-    <div class="col-12">
+    <div class="container-fluid">
+      <div class="row">
 
+        <div class="col-12">
+
+        </div>
+      </div>
     </div>
     <div class="col-12">
 

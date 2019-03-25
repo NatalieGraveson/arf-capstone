@@ -34,9 +34,9 @@
     <div class="container-fluid">
       <router-view />
     </div>
-    <footer>
-      <p>Footer Goes Here</p>
-    </footer>
+    <!-- <footer> -->
+    <!-- <p>Footer Goes Here</p> -->
+    <!-- </footer> -->
   </div>
 </template>
 

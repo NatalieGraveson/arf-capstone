@@ -22,7 +22,7 @@
 
 <script>
   export default {
-    name: "",
+    name: "ELandingNav",
     props: [],
     data() {
       return {}
