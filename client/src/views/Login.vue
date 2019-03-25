@@ -2,7 +2,7 @@
   <div class="login">
     <div class="row cuteDog">
       <div class="col-12">
-        <form v-if="loginForm" @submit.prevent="loginUser">
+        <form class="coolForm" v-if="loginForm" @submit.prevent="loginUser">
           <input type="email" v-model="creds.email" placeholder="email">
           <input type="password" v-model="creds.password" placeholder="password">
           <button type="submit">Login</button>
@@ -19,22 +19,20 @@
         <p v-else>Already have an account? Click here to Login</p>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row">
+    <div class="row full">
 
-        <div class="col-12">
-
-        </div>
+      <div class="col-12 oneBar">
+        <p>cool</p>
       </div>
-    </div>
-    <div class="col-12">
+      <div class="col-12 twoBar">
 
-    </div>
-    <div class="col-12">
+      </div>
+      <div class="col-12 threeBar">
 
-    </div>
-    <div class="col-12">
+      </div>
+      <div class="col-12 fourBar">
 
+      </div>
     </div>
   </div>
 </template>
@@ -81,5 +79,23 @@
     background-size: cover;
     background-attachment: fixed;
     min-height: 100vh;
+  }
+
+  .full {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .oneBar {
+    background-color: black;
+    height: 250px;
+  }
+
+  .twoBar {
+    height: 335px;
+  }
+
+  .coolForm {
+    margin-top: 86px;
   }
 </style>

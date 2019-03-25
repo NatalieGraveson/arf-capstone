@@ -1,12 +1,11 @@
 <template>
   <div class="col-12 col-md-3 mb-3 petcards d-flex justify-content-center card-group click">
-    <div @click="$router.push({name: 'Profile', params: {id:dogData.petOwnerId}})"
-      class="card border border-light bg-transparent w-100">
+    <div @click="$router.push({name: 'Profile', params: {id:dogData.petOwnerId}})" class="">
       <img v-bind:src="dogImg" class="card-img-top">
       <div class="card-body">
-        <p class="card-text">{{dogData.name}}
-        </p>
-        <p>Checked In: {{dogData.checkedIn}}</p>
+        <hr>
+        <h3 class="card-text">{{dogData.name}}</h3>
+        <h6>Checked In: {{dogData.checkedIn}}</h6>
       </div>
     </div>
   </div>
@@ -36,14 +35,26 @@
     flex-direction: row;
     color: white;
     text-shadow: 1px 2px black;
+    background-color: rgba(0, 0, 0, 0.11);
+    border-radius: 20px;
+    border-style: solid;
 
   }
 
   .card-img-top {
-    min-height: 38vh;
+    max-height: 30vh;
+    min-height: 30vh;
+    min-width: 100%;
+    border-radius: 20px;
+    margin-top: 10px;
   }
 
   .click:hover {
     cursor: pointer;
+  }
+
+  img {
+    border-style: dashed;
+    border-color: black;
   }
 </style>

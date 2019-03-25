@@ -11,9 +11,10 @@
             <div class="col-12 offset-md-1 col-md-7">
                <h5>{{pstatus}}</h5>
                <p>{{activePet.checkIn}}</p>
-               <p>{{activePet.checkOut}}</p>>
+               <p>{{activePet.checkOut}}</p>
                <p>Breed: {{activePet.breed}}</p>
                <edit-pet></edit-pet>
+               <add-note></add-note>
             </div>
          </div>
          <div class="row notes-card">
@@ -34,6 +35,7 @@
 <script>
    import EditPet from '@/components/EmployeeComponents/EditPet.vue'
    import IncidentModal from '@/components/EmployeeComponents/IncidentModal.vue'
+   import AddNote from '@/components/EmployeeComponents/AddNote.vue'
 
    export default {
       name: "PetProfile",
@@ -90,7 +92,8 @@
       },
       components: {
          EditPet,
-         IncidentModal
+         IncidentModal,
+         AddNote
       }
    }
 </script>
