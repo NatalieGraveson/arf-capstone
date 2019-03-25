@@ -64,6 +64,9 @@ export default new Vuex.Store({
     setActivePet(state, data) {
       state.activePet = data
     },
+    clearActivePet(state, data) {
+      Vue.set(state, "activePet", {})
+    }
   },
   actions: {
     //#region -- AUTH STUFF --
@@ -127,7 +130,6 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res)
           commit('setActiveOwner', res.data)
-          commit('clearActivePet')
         })
     },
     editOwner({ commit, dispatch }, payload) {
@@ -167,10 +169,19 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res)
           commit('setPets', res.data)
+          commit('clearActivePet')
+
         })
     },
     getActivePet({ commit, dispatch }, payload) {
       api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId, payload)
+        .then(res => {
+          console.log(res)
+          commit('setActivePet', res.data)
+        })
+    },
+    getActivePet2({ commit, dispatch }, payload) {
+      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload._id, payload)
         .then(res => {
           console.log(res)
           commit('setActivePet', res.data)
