@@ -17,7 +17,7 @@
          </div>
          <div class="row notes-card">
             <div class="col-12">
-               <p> Notes / Reports</p>
+               <incident-modal></incident-modal>
             </div>
          </div>
          <div class="row">
@@ -32,6 +32,8 @@
 
 <script>
    import EditPet from '@/components/EmployeeComponents/EditPet.vue'
+   import IncidentModal from '@/components/EmployeeComponents/IncidentModal.vue'
+
    export default {
       name: "PetProfile",
       props: [],
@@ -86,7 +88,8 @@
          }
       },
       components: {
-         EditPet
+         EditPet,
+         IncidentModal
       }
    }
 </script>
