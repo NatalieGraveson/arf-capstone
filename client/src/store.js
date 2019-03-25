@@ -177,14 +177,13 @@ export default new Vuex.Store({
         })
     },
     editActivePet({ commit, dispatch }, payload) {
-      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload._id, payload)
+      api.put('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId, payload)
         .then(res => {
           console.log(res)
           commit('setActivePet', res.data)
         })
     },
     editPet({ commit, dispatch }, payload) {
-      debugger
       api.put('employee/petowners/' + payload.petOwnerId + '/pets/' + payload._id, payload)
         .then(res => {
           dispatch('editActivePet', payload)
