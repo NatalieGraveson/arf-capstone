@@ -3,7 +3,7 @@
     <ELandingNav class="landNav"></ELandingNav>
     <div class="row">
       <div class="col-12 elheadr ">
-        <h1 class="mb-5 text-white">All Animals</h1>
+        <!-- <h1 class="mb-5 text-white">hi</h1> -->
         <div class="row">
           <dog v-for="dog in petMatches.length ? petMatches : dogs" :dogData="dog"></dog>
         </div>
@@ -49,8 +49,14 @@
 </script>
 <style scoped>
   .elheadr {
-    padding: 5vh;
+    margin-top: 15vh;
+    /* padding: 0px; */
+  }
 
+  @media only screen and (max-width: 450px) {
+    .elheadr {
+      margin-top: 30vh;
+    }
   }
 
   .dogbucket {

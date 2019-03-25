@@ -2,15 +2,16 @@
   <div class="row">
     <OwnerNav class="landNav"></OwnerNav>
     <div class="col-12">
-      <h1 class="ownerTitle">Pet Owners</h1>
+      <h1 class="ownerTitle"></h1>
 
     </div>
-    <div class="col-xs-12 col-md-4 offset-md-4">
+    <div class="col-12 col-md-8 offset-md-2">
       <table class="table table-striped table-dark">
         <thead>
           <tr>
-            <th scope="">Name</th>
+            <th scope="">Owner Name</th>
           </tr>
+          <br>
         </thead>
         <tbody>
           <owner v-for="owner in ownerMatches.length ? ownerMatches : owners" :ownerData="owner"></owner>

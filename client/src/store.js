@@ -66,6 +66,9 @@ export default new Vuex.Store({
     },
     clearActivePet(state, data) {
       Vue.set(state, "activePet", {})
+    },
+    addNote(state, data) {
+      state.notes.push(data)
     }
   },
   actions: {
@@ -206,7 +209,19 @@ export default new Vuex.Store({
     },
     findOwnerMatches({ commit, dispatch }, payload) {
       commit('setOwnerMatches', payload)
-    }
+    },
+    //#endregion
+    //#region --NOTES--
+    createNote({ commit, dispatch }, payload) {
+      debugger
+      console.log(payload)
+      api.post('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/notes', payload)
+        .then(res => {
+          console.log(res)
+          commit('addNote', res.data)
+        })
+    },
+
     //#endregion
   }
 })

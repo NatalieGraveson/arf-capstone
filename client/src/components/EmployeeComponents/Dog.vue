@@ -5,7 +5,8 @@
       <div class="card-body">
         <hr>
         <h3 class="card-text">{{dogData.name}}</h3>
-        <h6>Checked In: {{dogData.checkedIn}}</h6>
+        <hr>
+        <H6>{{pstatus}}</H6>
       </div>
     </div>
   </div>
@@ -23,8 +24,14 @@
     },
     computed: {
       dogImg() {
-        return this.dogData.img || "../assets/dogholder.png"
-      }
+        return this.dogData.img || "http://report.hsppr.org/images/numbers-09.png"
+      },
+      pstatus() {
+        if (this.dogData.checkedIn) {
+          return 'Checked-In'
+        }
+        return 'Absent'
+      },
     },
     methods: {},
     components: {}
@@ -35,16 +42,25 @@
     flex-direction: row;
     color: white;
     text-shadow: 1px 2px black;
-    background-color: rgba(0, 0, 0, 0.11);
-    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.24);
+    /* border-radius: 20px; */
     border-style: solid;
+    border-width: thin;
+    border-radius: 25px;
+    border-color: rgba(0, 0, 0, 0.171);
 
+  }
+
+  @media only screen and (max-width: 450px) {
+    .petcards {
+      border-radius: 0px;
+    }
   }
 
   .card-img-top {
     max-height: 30vh;
     min-height: 30vh;
-    min-width: 100%;
+    min-width: 23vw;
     border-radius: 20px;
     margin-top: 10px;
   }
@@ -53,8 +69,9 @@
     cursor: pointer;
   }
 
-  img {
+  /* img {
     border-style: dashed;
-    border-color: black;
-  }
+    border-color: white;
+    border-width: thin;
+  } */
 </style>

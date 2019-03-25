@@ -11,8 +11,8 @@ let schema = new Schema({
   petOwnerId: { type: ObjectId, ref: 'PetOwner', required: true },
   noteId: { type: ObjectId, ref: 'Note' },
   checkedIn: { type: Boolean, default: false },
-  checkIn: { type: Number, default: 0 },
-  checkOut: { type: Number, default: 0 },
+  checkIn: { type: String, default: "" },
+  checkOut: { type: String, default: "" },
   identityId: { type: ObjectId, ref: 'Identity' }
 })
 

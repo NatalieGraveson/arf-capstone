@@ -9,12 +9,13 @@
                <img class="petimg" v-bind:src="activePet.img">
             </div>
             <div class="col-12 offset-md-1 col-md-7">
-               <h5>{{pstatus}}</h5>
-               <p>{{activePet.checkIn}}</p>
-               <p>{{activePet.checkOut}}</p>
-               <p>Breed: {{activePet.breed}}</p>
                <edit-pet></edit-pet>
+               <h5>{{pstatus}}</h5>
+               <p>Checked in Time: {{activePet.checkIn}} </p>
+               <p>Checked out Time: {{activePet.checkOut}}</p>
+               <p>Breed: {{activePet.breed}}</p>
                <add-note></add-note>
+               <dog-note></dog-note>
             </div>
          </div>
          <div class="row notes-card">
@@ -36,12 +37,15 @@
    import EditPet from '@/components/EmployeeComponents/EditPet.vue'
    import IncidentModal from '@/components/EmployeeComponents/IncidentModal.vue'
    import AddNote from '@/components/EmployeeComponents/AddNote.vue'
+   import DogNote from '@/components/EmployeeComponents/DogNote.vue'
 
    export default {
       name: "PetProfile",
       props: [],
       data() {
-         return {}
+         return {
+
+         }
       },
       mounted() {
       },
@@ -57,7 +61,9 @@
          },
       },
       methods: {
+
          checkIn() {
+
             let { checkedIn, _id: petId, name: petName } = this.$store.state.activePet //destructuring
             if (checkedIn) {
                return alert("This pet is already checked in")
@@ -66,10 +72,35 @@
             if (!petName) {
                return alert("Please select a pet")
             }
+            function showTime() {
+               debugger
+               let date = new Date()
+               let day = date.getDate()
+               let month = date.getMonth()
+               let hour = date.getHours()
+               let minute = date.getMinutes()
+               let second = date.getSeconds()
+               let amPm = "AM"
+               if (hour == 0) {
+                  hour = 12
+               }
+
+               if (hour > 12) {
+                  hour = hour - 12
+                  amPm = "PM"
+               }
+               hour = (hour < 10) ? "0" + hour : hour
+               minute = (minute < 10) ? "0" + minute : minute
+               second = (second < 10) ? "0" + second : second
+               let time = hour + ":" + minute + " " + amPm
+
+            }
+            let checkIn = showTime()
             let payload = {
                checkedIn,
                petId,
-               petName
+               petName,
+               checkIn
             }
             return this.$store.dispatch('editActivePet', payload)
          },
@@ -93,7 +124,8 @@
       components: {
          EditPet,
          IncidentModal,
-         AddNote
+         AddNote,
+         DogNote
       }
    }
 </script>

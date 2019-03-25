@@ -1,7 +1,7 @@
 <template>
 
   <tr class="click" @click="$router.push({name: 'Profile', params: {id:ownerData._id}})">
-    <td>{{ownerData.name}}</td>
+    <td>{{ownerData.name}} -- {{ownerData.phone}} -- {{ownerData.email}}</td>
   </tr>
 
 </template>

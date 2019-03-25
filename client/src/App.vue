@@ -97,6 +97,7 @@
     z-index: 7;
     cursor: pointer;
     background-color: #e9eaea;
+
   }
 
   footer {
