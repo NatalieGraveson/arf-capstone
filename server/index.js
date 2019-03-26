@@ -48,6 +48,17 @@ server.use((req, res, next) => {
 let petOwnerRoutes = require('./server-assets/routes/petOwner')
 let pets = require('./server-assets/routes/pet')
 let notes = require('./server-assets/routes/note')
+let timeCard = require('./server-assets/routes/timeCard')
+
+
+//middlewear adds the identityId to every post request
+server.use('*', (req, res, next) => {
+  if (req.method == "POST") {
+    req.body.identityId = req.session.uid
+  }
+  next()
+})
+
 
 //customer routes
 //api/customer
@@ -66,6 +77,7 @@ server.use('api/employee', (req, res, next) => {
 server.use('/api/employee', petOwnerRoutes)
 server.use('/api/employee', pets)
 server.use('/api/employee', notes)
+server.use('/api/employee', timeCard)
 
 
 

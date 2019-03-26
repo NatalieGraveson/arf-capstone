@@ -13,9 +13,9 @@
             <div class="col-12 offset-md-1 col-md-7">
                <edit-pet></edit-pet>
                <h5>{{pstatus}}</h5>
-               <p>Checked in Time: {{activePet.checkIn}} </p>
-               <p>Checked out Time: {{activePet.checkOut}}</p>
-               <p>Total Time: {{activePet.totalTime}}</p>
+               <p>Checked in Time: {{timeCard.inTime | formatTime}} </p>
+               <p>Checked out Time: {{timeCard.outTime | formatTime}}</p>
+               <p>Total Time: {{timeCard.totalTime | getHours}}</p>
                <p>Breed: {{activePet.breed}}</p>
                <dog-note></dog-note>
             </div>
@@ -45,6 +45,7 @@
    import IncidentModal from '@/components/EmployeeComponents/IncidentModal.vue'
    import AddNote from '@/components/EmployeeComponents/AddNote.vue'
    import DogNote from '@/components/EmployeeComponents/DogNote.vue'
+   import Moment from 'moment'
 
    export default {
       name: "PetProfile",
@@ -55,81 +56,63 @@
          }
       },
       mounted() {
+         this.$store.dispatch('getTimeCard')
       },
       computed: {
          activePet() {
             return this.$store.state.activePet
+         },
+         timeCard() {
+            return this.$store.state.timeCard
          },
          pstatus() {
             if (this.activePet.checkedIn) {
                return 'Checked In'
             }
             return 'Checked Out'
+         }
+      },
+      filters: {
+         formatTime(date) {
+            if (!date) return 'N/A'
+            return Moment(date).format("h:mm:ss a")
          },
+         getHours(date) {
+            let hour = (date / 3600000).toFixed(2)
+            if (hour < 1) { hour = 1 }
+            if (!date) { hour = 0 }
+            return hour + 'Hours'
+         }
       },
       methods: {
          timeIn() {
-            debugger
-            let date = new Date()
-            let day = date.getDate()
-            let month = date.getMonth()
-            let hour = date.getHours()
-            let minute = date.getMinutes()
-            let second = date.getSeconds()
-            let amPm = "AM"
-            if (hour == 0) {
-               hour = 12
-            }
-
-            if (hour > 12) {
-               hour = hour - 12
-               amPm = "PM"
-            }
-            hour = (hour < 10) ? "0" + hour : hour
-            minute = (minute < 10) ? "0" + minute : minute
-            second = (second < 10) ? "0" + second : second
-            let checkIn = hour + ":" + minute + " " + amPm
-            let petOwnerId = this.$store.state.activePet.petOwnerId
-            let name = this.$store.state.activePet.name
-            let petId = this.$store.state.activePet._id
+            let inTime = Date.now()
+            let { _id: petId, petOwnerId } = this.$store.state.activePet //destructuring            
             let payload = {
-               checkIn,
+               inTime,
                petOwnerId,
-               name,
                petId
             }
-            return this.$store.dispatch('editActivePet', payload)
+            return this.$store.dispatch('createTimeCard', payload)
          },
          timeOut() {
-            let date = new Date()
-            let day = date.getDate()
-            let month = date.getMonth()
-            let hour = date.getHours()
-            let minute = date.getMinutes()
-            let second = date.getSeconds()
-            let amPm = "AM"
-            if (hour == 0) {
-               hour = 12
-            }
-
-            if (hour > 12) {
-               hour = hour - 12
-               amPm = "PM"
-            }
-            hour = (hour < 10) ? "0" + hour : hour
-            minute = (minute < 10) ? "0" + minute : minute
-            second = (second < 10) ? "0" + second : second
-            let checkOut = hour + ":" + minute + " " + amPm
-            let petOwnerId = this.$store.state.activePet.petOwnerId
-            let name = this.$store.state.activePet.name
+            let timeCardId = this.$store.state.timeCard._id
             let petId = this.$store.state.activePet._id
+            let petOwnerId = this.$store.state.activePet.petOwnerId
+            let outTime = Date.now()
+            let inTime = this.$store.state.timeCard.inTime
+            debugger
+            let totalTime = outTime - inTime
+            //and the billed amount
+
             let payload = {
-               checkOut,
+               outTime,
+               petId,
+               timeCardId,
                petOwnerId,
-               name,
-               petId
+               totalTime
             }
-            return this.$store.dispatch('editActivePet', payload)
+            return this.$store.dispatch('editTimeCard', payload)
          },
          checkIn() {
 

@@ -42,13 +42,12 @@
     flex-direction: row;
     color: white;
     text-shadow: 1px 2px black;
-    background-color: rgba(0, 0, 0, 0.24);
+    background-color: rgba(235, 229, 229, 0.671);
     /* border-radius: 20px; */
     border-style: solid;
     border-width: thin;
     border-radius: 25px;
     border-color: rgba(0, 0, 0, 0.171);
-
   }
 
   @media only screen and (max-width: 450px) {

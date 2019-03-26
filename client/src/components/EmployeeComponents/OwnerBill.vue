@@ -1,5 +1,5 @@
 <template>
-  <tr class="click" @click="setActiveOwner">
+  <tr>
     <td>{{ownerData.name}} -- Current Balance : $ {{ownerData.balance}}</td>
   </tr>
 </template>

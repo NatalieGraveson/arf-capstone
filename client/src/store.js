@@ -29,6 +29,7 @@ export default new Vuex.Store({
     activePet: {},
     petMatches: [],
     ownerMatches: [],
+    timeCard: []
   },
   mutations: {
     setOwnerMatches(state, data) {
@@ -72,7 +73,14 @@ export default new Vuex.Store({
     },
     setNotes(state, data) {
       state.notes = data
+    },
+    setTimeCard(state, data) {
+      state.timeCard = data
+    },
+    lastTimeCard(state, data) {
+      state.timeCard.pop()
     }
+
   },
   actions: {
     //#region -- AUTH STUFF --
@@ -184,6 +192,7 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res)
           commit('setActivePet', res.data)
+          dispatch('getTimeCard', payload)
         })
     },
     getActivePet2({ commit, dispatch }, payload) {
@@ -216,7 +225,6 @@ export default new Vuex.Store({
     //#endregion
     //#region --NOTES--
     createNote({ commit, dispatch }, payload) {
-      debugger
       console.log(payload)
       api.post('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/notes', payload)
         .then(res => {
@@ -225,7 +233,6 @@ export default new Vuex.Store({
         })
     },
     editNote({ commit, dispatch }, payload) {
-      debugger
       api.put('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/notes', payload)
         .then(res => {
           console.log(res)
@@ -234,5 +241,23 @@ export default new Vuex.Store({
     },
 
     //#endregion
+    createTimeCard({ commit, dispatch }, payload) {
+      api.post('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/timecard', payload)
+        .then(res => {
+          commit('setTimeCard', res.data)
+        })
+    },
+    getTimeCard({ commit, dispatch }, payload) {
+      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/timecard', payload)
+        .then(res => {
+          if (!res.data.length) { commit('setTimeCard', res.data[res.data.length - 1]) }
+        })
+    },
+    editTimeCard({ commit, dispatch }, payload) {
+      api.put('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/timecard/' + payload.timeCardId, payload)
+        .then(res => {
+          commit('setTimeCard', res.data)
+        })
+    }
   }
 })
