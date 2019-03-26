@@ -13,6 +13,7 @@ let schema = new Schema({
   checkedIn: { type: Boolean, default: false },
   checkIn: { type: String, default: "" },
   checkOut: { type: String, default: "" },
+  totalTime: { type: Number },
   identityId: { type: ObjectId, ref: 'Identity' }
 })
 

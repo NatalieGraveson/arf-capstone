@@ -15,6 +15,7 @@
                <h5>{{pstatus}}</h5>
                <p>Checked in Time: {{activePet.checkIn}} </p>
                <p>Checked out Time: {{activePet.checkOut}}</p>
+               <p>Total Time: {{activePet.totalTime}}</p>
                <p>Breed: {{activePet.breed}}</p>
                <add-note></add-note>
                <dog-note></dog-note>
@@ -64,6 +65,7 @@
       },
       methods: {
          timeIn() {
+            debugger
             let date = new Date()
             let day = date.getDate()
             let month = date.getMonth()
@@ -158,6 +160,9 @@
                petName
             }
             return this.$store.dispatch('editActivePet', payload)
+         },
+         totalTime() {
+
          }
       },
       components: {

@@ -3,15 +3,15 @@
     <div class="row cuteDog">
       <div class="col-12">
         <form class="coolForm" v-if="loginForm" @submit.prevent="loginUser">
-          <input type="email" v-model="creds.email" placeholder="email">
-          <input type="password" v-model="creds.password" placeholder="password">
-          <button type="submit">Login</button>
+          <input class="form-control bg-transparent" type="email" v-model="creds.email" placeholder="email">
+          <input class="form-control bg-transparent" type="password" v-model="creds.password" placeholder="password">
+          <button class="btn btn-secondary" type="submit">Login</button>
         </form>
-        <form v-else @submit.prevent="register">
-          <input type="text" v-model="newUser.name" placeholder="name">
-          <input type="email" v-model="newUser.email" placeholder="email">
-          <input type="password" v-model="newUser.password" placeholder="password">
-          <button type="submit">Create Account</button>
+        <form class="coolForm" v-else @submit.prevent="register">
+          <input class="form-control bg-transparent" type="text" v-model="newUser.name" placeholder="name">
+          <input class="form-control bg-transparent" type="email" v-model="newUser.email" placeholder="email">
+          <input class="form-control bg-transparent" type="password" v-model="newUser.password" placeholder="password">
+          <button class="btn btn-secondary" type="submit">Create Account</button>
         </form>
       </div>
       <div class="action col-12" @click="loginForm = !loginForm">
@@ -23,14 +23,17 @@
 
       <div class="col-12 oneBar">
         <h2>A r f</h2>
-        <p>is a CRM desgined for managing relationships and interactions with customers and their pets</p>
+        <p>is a CRM desgined for managing relationships and interactions with customers and their
+          pets</p>
       </div>
       <div class="col-12 twoBar">
-        <h3>as a customer, you will create an account which gives you access to view...</h3>
-        <h3>you and your pets info</h3>
-        <h3>when your pet checks in and out</h3>
-        <h3>reports on your pet for the day</h3>
-        <h3>billing information</h3>
+        <h3 class="explanation">as a business, you will create an account which gives you access to...</h3>
+        <ul class="prettyList">
+          <li class="firstLine">all pet and owner info</li>
+          <li class="secondLine">pet checks ins and outs</li>
+          <li class="thirdLine">create/view reports on pets</li>
+          <li class="fourthLine">billing</li>
+        </ul>
       </div>
       <div class="col-12 threeBar">
       </div>
@@ -102,11 +105,29 @@
 
   .threeBar {
     height: 363px;
-    background-image: url('http://2.bp.blogspot.com/-HROIqBef8ak/UEhiSXZuX5I/AAAAAAAABCA/vmqPFx6iPmw/s1600/natural-national-geographic-full-HD-nature-background-wallpaper-for-laptop-widescreen.jpg')
+    background-image: url('http://www.timelinecoverbanner.com/facebook-covers/2011/12/dew-on-grass-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
   }
+
+
 
   .coolForm {
     margin-top: 86px;
+    width: 244px;
+    text-align: center;
+    margin-left: 795px;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .coolForm {
+      margin-top: 86px;
+      width: 244px;
+      text-align: center;
+      margin-left: 43px;
+
+    }
   }
 
   h2 {
@@ -117,7 +138,32 @@
 
   p {
     color: white;
-    margin-top: 42px;
+    margin-top: 10px;
     font-size: 25px;
+  }
+
+  .explanation {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .prettyList {
+    text-align: left;
+    margin-left: 38px;
+    margin-top: 30px;
+    font-size: 19px;
+    margin-left: 745px;
+    font-size: 30px;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .prettyList {
+      text-align: left;
+      margin-left: 38px;
+      margin-top: 30px;
+      font-size: 19px;
+      margin-left: 20px;
+      font-size: 22px;
+    }
   }
 </style>
