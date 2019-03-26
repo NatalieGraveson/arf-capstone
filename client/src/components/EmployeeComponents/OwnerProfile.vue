@@ -67,9 +67,7 @@
           this.$store.state.activePet
       },
       activePet() {
-        return
-
-        this.$store.state.activePet
+        return this.$store.state.activePet
       }
     },
     methods: {

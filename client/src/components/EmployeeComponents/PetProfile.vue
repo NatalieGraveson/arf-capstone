@@ -21,13 +21,28 @@
             </div>
          </div>
          <div class="row notes-card">
-            <div class="col-4">
-               <button>
-                  <add-note></add-note>
-               </button>
+            <div class="col-12">
+               <button @click="addNote = true, reportCard = false, incidentModal = false"
+                  class="btn btn-primary">Notes</button>
+               <button @click="addNote = false, reportCard = true, incidentModal = false" class="btn btn-primary">Report
+                  Card</button>
+               <button @click="addNote = false, reportCard = false, incidentModal = true"
+                  class="btn btn-primary">Incident Report</button>
             </div>
-            <div class="col-4">
+            <div class="col-12" v-show="addNote">
+               <add-note></add-note>
+            </div>
+            <div class="col-12" v-show="incidentModal">
                <incident-modal></incident-modal>
+            </div>
+            <div class="col-12" v-show="reportCard">
+               <report-card></report-card>
+            </div>
+            <div class="col-12">
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notes-modal">View
+                  All Notes</button>
+               <show-notes>
+               </show-notes>
             </div>
          </div>
          <div class="row">
@@ -45,14 +60,23 @@
    import IncidentModal from '@/components/EmployeeComponents/IncidentModal.vue'
    import AddNote from '@/components/EmployeeComponents/AddNote.vue'
    import DogNote from '@/components/EmployeeComponents/DogNote.vue'
+<<<<<<< HEAD
    import Moment from 'moment'
+=======
+   import ReportCard from '@/components/EmployeeComponents/ReportCard.vue'
+   import ShowNotes from '@/components/EmployeeComponents/ShowNotes.vue'
+
+
+>>>>>>> 9abc6c8812a41cb28c827db9bf69629738a28486
 
    export default {
       name: "PetProfile",
       props: [],
       data() {
          return {
-
+            addNote: false,
+            incidentModal: false,
+            reportCard: false
          }
       },
       mounted() {
@@ -149,14 +173,16 @@
             return this.$store.dispatch('editActivePet', payload)
          },
          totalTime() {
-
          }
       },
+
       components: {
          EditPet,
          IncidentModal,
          AddNote,
-         DogNote
+         DogNote,
+         ReportCard,
+         ShowNotes
       }
    }
 </script>
@@ -172,6 +198,7 @@
       height: 300px;
       border-radius: 10px;
       box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.589);
+      margin-bottom: 8px;
    }
 
    .profCard {
@@ -202,4 +229,13 @@
       margin: 0px 0px;
       border-radius: 10px;
    }
+
+   .notes-card {
+      background-color: rgba(0, 0, 0, 0.445);
+      padding: 5px 0px;
+      margin: 8px 0px;
+      border-radius: 10px;
+   }
+</style>
+</style>
 </style>

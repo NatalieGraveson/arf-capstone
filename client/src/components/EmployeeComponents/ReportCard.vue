@@ -1,33 +1,31 @@
 <template>
-  <div class="row">
+  <div class="row ReportCard">
     <div class="col-12">
       <form @submit.prevent='createNote()'>
-        <h3>Add Note</h3>
-        <input class="formfield" type="text" v-model="notes.behavior" name="Behavior" placeholder="Behavior:">
+        <h3>File Report</h3>
+        <input class="formfield" type="text" v-model="notes.name" name="Name" placeholder="Name:">
         <br>
-        <input class="formfield" type="text" v-model="notes.diet" name="diet" placeholder="Diet:">
+        <input class="formfield" type="text" v-model="notes.behavior" name="behavior" placeholder="Behavior:">
         <br>
-        <input class="formfield" type="text" v-model="notes.body" name="body" placeholder="Additional Notes:">
+        <input class="formfield" type="text" v-model="notes.body" name="Body" placeholder="Report:">
         <br>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
-  </div>
 
+  </div>
 </template>
 
 
-
 <script>
-  import ShowNotes from '@/components/EmployeeComponents/ShowNotes.vue'
   export default {
-    name: 'AddNote',
+    name: 'ReportCard',
     data() {
       return {
         notes: {
-          behavior: "",
-          diet: "",
+          name: "",
           body: "",
+          behavior: "",
           id: ""
         }
       }
@@ -39,30 +37,28 @@
     },
     methods: {
       createNote() {
+        let name = this.notes.name
+        let behavior = this.notes.behavior
         let petId = this.$store.state.activePet._id
         let petOwnerId = this.$store.state.activePet.petOwnerId
-        let behavior = this.notes.behavior
-        let diet = this.notes.diet
         let body = this.notes.body
-        let flagged = "General"
+        let flagged = "Pet Report"
         let payload = {
-          behavior,
-          diet,
           body,
           petId,
           petOwnerId,
-          flagged
+          flagged,
+          behavior,
+          name
         }
         this.$store.dispatch('createNote', payload)
-      }
+      },
     },
-    components: {
-      ShowNotes
-    }
+    components: {}
   }
 </script>
 
 
-<style>
+<style scoped>
 
 </style>
