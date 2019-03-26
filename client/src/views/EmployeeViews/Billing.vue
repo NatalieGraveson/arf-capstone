@@ -57,17 +57,9 @@
     }
   }
 </script>
-<<<<<<< HEAD
-
-
-<style scoped>
-  .billing {
-    padding-top: 100px;
-=======
 <style>
   .ownerTitle {
     margin-top: 100px;
     margin-bottom: 47px;
->>>>>>> 035a5697b81b5d67163849995409fec54cc5be1c
   }
 </style>
