@@ -20,13 +20,22 @@
             </div>
          </div>
          <div class="row notes-card">
-            <div class="col-4">
-               <button>
-                  <add-note></add-note>
-               </button>
+            <div class="col-12">
+               <button @click="addNote = true, reportCard = false, incidentModal = false"
+                  class="btn btn-primary">Notes</button>
+               <button @click="addNote = false, reportCard = true, incidentModal = false" class="btn btn-primary">Report
+                  Card</button>
+               <button @click="addNote = false, reportCard = false, incidentModal = true"
+                  class="btn btn-primary">Incident Report</button>
             </div>
-            <div class="col-4">
+            <div class="col-12" v-show="addNote">
+               <add-note></add-note>
+            </div>
+            <div class="col-12" v-show="incidentModal">
                <incident-modal></incident-modal>
+            </div>
+            <div class="col-12" v-show="reportCard">
+               <report-card></report-card>
             </div>
          </div>
          <div class="row">
@@ -44,13 +53,16 @@
    import IncidentModal from '@/components/EmployeeComponents/IncidentModal.vue'
    import AddNote from '@/components/EmployeeComponents/AddNote.vue'
    import DogNote from '@/components/EmployeeComponents/DogNote.vue'
+   import ReportCard from '@/components/EmployeeComponents/ReportCard.vue'
 
    export default {
       name: "PetProfile",
       props: [],
       data() {
          return {
-
+            addNote: false,
+            incidentModal: false,
+            reportCard: false
          }
       },
       mounted() {
@@ -168,7 +180,8 @@
          EditPet,
          IncidentModal,
          AddNote,
-         DogNote
+         DogNote,
+         ReportCard
       }
    }
 </script>
