@@ -69,6 +69,9 @@ export default new Vuex.Store({
     },
     addNote(state, data) {
       state.notes.push(data)
+    },
+    setNotes(state, data) {
+      state.notes = data
     }
   },
   actions: {
@@ -219,6 +222,14 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res)
           commit('addNote', res.data)
+        })
+    },
+    editNote({ commit, dispatch }, payload) {
+      debugger
+      api.put('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/notes', payload)
+        .then(res => {
+          console.log(res)
+          dispatch('setNotes', payload._id)
         })
     },
 

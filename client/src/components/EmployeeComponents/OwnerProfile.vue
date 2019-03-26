@@ -19,8 +19,13 @@
           <p>Phone Number: {{owner.eContactNumber}}</p>
         </div>
         <edit-owner></edit-owner>
-        <div class="col-4 col-md-4 petnames mt-3" v-for="pet in pets" @click="getActivePet(pet._id)">
-          <p>{{pet.name}}</p>
+        <div class="col-4 col-md-3 petnames mt-3" v-for="pet in pets" @click="getActivePet(pet._id)">
+          <div class="row">
+            <div class="col-12 text-center pet-base">
+              <p>{{pet.name}}</p>
+              <img class="pet-thumb d-flex justify-content-center" v-bind:src="pet.img">
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -83,6 +88,15 @@
   }
 </script>
 <style scoped>
+  .pet-base {
+    padding-bottom: 10px;
+  }
+
+  .pet-thumb {
+    max-height: 150px;
+    border-radius: 10px;
+  }
+
   .newCard {
     /* background-image: url('https://vignette.wikia.nocookie.net/edwikia/images/0/0d/Plank.png/revision/latest/scale-to-width-down/338?cb=20170726093347'); */
     /* background-repeat: no-repeat; */
@@ -114,9 +128,11 @@
   .petnames {
     background-color: rgba(0, 0, 0, 0.603);
     border-radius: 10px;
-    margin: 0vh 0vw 1vh 9.2vw;
+    margin: 0vh 3.4vw 1vh 3.4vw;
     display: flex;
     justify-content: space-around;
     cursor: pointer;
+    min-width: 150px;
+    box-shadow: 5px 5px 5px rgba(177, 176, 176, 0.719);
   }
 </style>

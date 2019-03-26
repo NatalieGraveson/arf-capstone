@@ -5,7 +5,7 @@
       <h1 class="ownerTitle"></h1>
 
     </div>
-    <div class="col-12 col-md-8 offset-md-2">
+    <div class="col-12 col-md-3 offset-md-4">
       <table class="table table-striped table-dark">
         <thead>
           <tr>
@@ -51,7 +51,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .ownerTitle {
     margin-top: 100px;
     margin-bottom: 47px;

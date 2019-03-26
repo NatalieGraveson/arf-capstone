@@ -17,12 +17,16 @@
                <p>Checked out Time: {{activePet.checkOut}}</p>
                <p>Total Time: {{activePet.totalTime}}</p>
                <p>Breed: {{activePet.breed}}</p>
-               <add-note></add-note>
                <dog-note></dog-note>
             </div>
          </div>
          <div class="row notes-card">
-            <div class="col-12">
+            <div class="col-4">
+               <button>
+                  <add-note></add-note>
+               </button>
+            </div>
+            <div class="col-4">
                <incident-modal></incident-modal>
             </div>
          </div>
