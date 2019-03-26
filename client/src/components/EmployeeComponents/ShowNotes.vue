@@ -1,23 +1,25 @@
 <template>
-  <div class="showNotes col-12">
-    <div class="modal" tabindex="-1" role="dialog" id="notes-modal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="row">
-            <div class="col-12">
-              <h5 class="modal-header">All Notes</h5>
+  <div class="row">
+    <div class="showNotes col-12">
+      <div class="modal" tabindex="-1" role="dialog" id="notes-modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="row">
+              <div class="col-12">
+                <h5 class="modal-header">All Notes</h5>
+              </div>
+              <div class="col-12" v-for="note in notes">
+                <p>Behavior: {{note.behavior}}</p>
+                <p>Diet: {{note.diet}}</p>
+                <p>Additional notes: {{note.body}}</p>
+                <hr>
+              </div>
             </div>
-            <div class="col-12" v-for="note in notes">
-              <p>Behavior: {{note.behavior}}</p>
-              <p>Diet: {{note.diet}}</p>
-              <p>Additional notes: {{note.body}}</p>
-              <hr>
+            <div class="modal-footer">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="closebutton" aria-hidden="true">close</span>
+              </button>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span class="closebutton" aria-hidden="true">close</span>
-            </button>
           </div>
         </div>
       </div>

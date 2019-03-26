@@ -22,7 +22,7 @@
          </div>
          <div class="row notes-card">
             <div class="col-12">
-               <button @click="addNote = true, reportCard = false, incidentModal = false, getNotes()"
+               <button @click="addNote = true, reportCard = false, incidentModal = false"
                   class="btn btn-primary">Notes</button>
                <button @click="addNote = false, reportCard = true, incidentModal = false" class="btn btn-primary">Report
                   Card</button>
@@ -37,6 +37,12 @@
             </div>
             <div class="col-12" v-show="reportCard">
                <report-card></report-card>
+            </div>
+            <div class="col-12">
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notes-modal">View
+                  All Notes</button>
+               <show-notes>
+               </show-notes>
             </div>
          </div>
          <div class="row">
@@ -55,6 +61,9 @@
    import AddNote from '@/components/EmployeeComponents/AddNote.vue'
    import DogNote from '@/components/EmployeeComponents/DogNote.vue'
    import ReportCard from '@/components/EmployeeComponents/ReportCard.vue'
+   import ShowNotes from '@/components/EmployeeComponents/ShowNotes.vue'
+
+
 
    export default {
       name: "PetProfile",
@@ -178,7 +187,6 @@
             return this.$store.dispatch('editActivePet', payload)
          },
          totalTime() {
-
          }
       },
 
@@ -187,7 +195,8 @@
          IncidentModal,
          AddNote,
          DogNote,
-         ReportCard
+         ReportCard,
+         ShowNotes
       }
    }
 </script>
@@ -239,8 +248,8 @@
       background-color: rgba(0, 0, 0, 0.445);
       padding: 5px 0px;
       margin: 8px 0px;
-      min-height: 600px;
       border-radius: 10px;
    }
+</style>
 </style>
 </style>

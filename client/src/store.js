@@ -184,6 +184,7 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res)
           commit('setActivePet', res.data)
+          dispatch('getNotes', res.data)
         })
     },
     getActivePet2({ commit, dispatch }, payload) {
@@ -216,6 +217,7 @@ export default new Vuex.Store({
     //#endregion
     //#region --NOTES--
     createNote({ commit, dispatch }, payload) {
+      debugger
       console.log(payload)
       api.post('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/notes', payload)
         .then(res => {
@@ -231,7 +233,7 @@ export default new Vuex.Store({
         })
     },
     getNotes({ commit, dispatch }, payload) {
-      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/notes')
+      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload._id + '/notes')
         .then(res => {
           console.log(res)
           commit('setNotes', res.data)
