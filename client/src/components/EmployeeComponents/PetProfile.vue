@@ -84,7 +84,7 @@
             return this.$store.state.activePet
          },
          timeCard() {
-            return this.$store.state.timeCard
+            return this.$store.state.timeCard || {}
          },
          pstatus() {
             if (this.activePet.checkedIn) {
@@ -122,7 +122,6 @@
             let petOwnerId = this.$store.state.activePet.petOwnerId
             let outTime = Date.now()
             let inTime = this.$store.state.timeCard.inTime
-            debugger
             let totalTime = outTime - inTime
             //and the billed amount
 
