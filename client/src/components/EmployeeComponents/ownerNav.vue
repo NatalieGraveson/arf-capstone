@@ -4,9 +4,9 @@
       <form class="form-inline">
         <input @input="findOwnerMatches" class="form-control mr-sm-2" type="search" placeholder="Search Owner Name..."
           aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn navbtns my-2 my-sm-0" type="submit">Search</button>
         <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          <button type="button" class="btn navbtns dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             Sort By
           </button>
@@ -53,5 +53,11 @@
   .landNav {
     background-color: #424c56;
     z-index: 5;
+  }
+
+  .navbtns {
+    border-style: solid;
+    border-color: white;
+    color: white;
   }
 </style>

@@ -216,7 +216,6 @@ export default new Vuex.Store({
     //#endregion
     //#region --NOTES--
     createNote({ commit, dispatch }, payload) {
-      debugger
       console.log(payload)
       api.post('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/notes', payload)
         .then(res => {
@@ -225,14 +224,19 @@ export default new Vuex.Store({
         })
     },
     editNote({ commit, dispatch }, payload) {
-      debugger
       api.put('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/notes', payload)
         .then(res => {
           console.log(res)
           dispatch('setNotes', payload._id)
         })
     },
-
+    getNotes({ commit, dispatch }, payload) {
+      api.get('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/notes')
+        .then(res => {
+          console.log(res)
+          commit('setNotes', res.data)
+        })
+    }
     //#endregion
   }
 })

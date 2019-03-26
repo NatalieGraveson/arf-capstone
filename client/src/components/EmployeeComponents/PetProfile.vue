@@ -22,7 +22,7 @@
          </div>
          <div class="row notes-card">
             <div class="col-12">
-               <button @click="addNote = true, reportCard = false, incidentModal = false"
+               <button @click="addNote = true, reportCard = false, incidentModal = false, getNotes()"
                   class="btn btn-primary">Notes</button>
                <button @click="addNote = false, reportCard = true, incidentModal = false" class="btn btn-primary">Report
                   Card</button>
@@ -181,6 +181,7 @@
 
          }
       },
+
       components: {
          EditPet,
          IncidentModal,
@@ -202,6 +203,7 @@
       height: 300px;
       border-radius: 10px;
       box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.589);
+      margin-bottom: 8px;
    }
 
    .profCard {
@@ -232,4 +234,13 @@
       margin: 0px 0px;
       border-radius: 10px;
    }
+
+   .notes-card {
+      background-color: rgba(0, 0, 0, 0.445);
+      padding: 5px 0px;
+      margin: 8px 0px;
+      min-height: 600px;
+      border-radius: 10px;
+   }
+</style>
 </style>
