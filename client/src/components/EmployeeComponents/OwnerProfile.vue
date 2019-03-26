@@ -133,6 +133,6 @@
     justify-content: space-around;
     cursor: pointer;
     min-width: 150px;
-    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.719);
+    box-shadow: 5px 5px 5px rgba(177, 176, 176, 0.719);
   }
 </style>
