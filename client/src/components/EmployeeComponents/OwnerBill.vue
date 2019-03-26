@@ -1,14 +1,12 @@
 <template>
-
-  <tr class="click" @click="$router.push({name: 'Profile', params: {id:ownerData._id}})">
-    <td>{{ownerData.name}}</td>
+  <tr class="click" @click="setActiveOwner">
+    <td>{{ownerData.name}} -- Current Balance : $ {{ownerData.balance}}</td>
   </tr>
-
 </template>
 
 <script>
   export default {
-    name: "ownerList",
+    name: "ownerbill",
     props: ['ownerData'],
     data() {
       return {}
