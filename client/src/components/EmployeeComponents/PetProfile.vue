@@ -60,14 +60,11 @@
    import IncidentModal from '@/components/EmployeeComponents/IncidentModal.vue'
    import AddNote from '@/components/EmployeeComponents/AddNote.vue'
    import DogNote from '@/components/EmployeeComponents/DogNote.vue'
-<<<<<<< HEAD
    import Moment from 'moment'
-=======
    import ReportCard from '@/components/EmployeeComponents/ReportCard.vue'
    import ShowNotes from '@/components/EmployeeComponents/ShowNotes.vue'
 
 
->>>>>>> 9abc6c8812a41cb28c827db9bf69629738a28486
 
    export default {
       name: "PetProfile",

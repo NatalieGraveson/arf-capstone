@@ -192,11 +192,8 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res)
           commit('setActivePet', res.data)
-<<<<<<< HEAD
           dispatch('getTimeCard', payload)
-=======
           dispatch('getNotes', res.data)
->>>>>>> 9abc6c8812a41cb28c827db9bf69629738a28486
         })
     },
     getActivePet2({ commit, dispatch }, payload) {
@@ -249,7 +246,7 @@ export default new Vuex.Store({
           console.log(res)
           commit('setNotes', res.data)
         })
-    }
+    },
     //#endregion
     createTimeCard({ commit, dispatch }, payload) {
       api.post('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/timecard', payload)
