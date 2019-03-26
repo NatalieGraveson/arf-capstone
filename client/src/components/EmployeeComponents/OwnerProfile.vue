@@ -89,7 +89,7 @@
 </script>
 <style scoped>
   .pet-base {
-    margin: -35px 10px 15px 10px;
+    padding-bottom: 10px;
   }
 
   .pet-thumb {

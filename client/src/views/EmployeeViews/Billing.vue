@@ -20,5 +20,7 @@
 
 
 <style scoped>
-
+  .billing {
+    padding-top: 100px;
+  }
 </style>

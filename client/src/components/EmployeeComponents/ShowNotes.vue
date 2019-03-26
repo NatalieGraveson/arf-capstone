@@ -1,13 +1,14 @@
 <template>
-  <div class=" ">
-    Billing
+  <div class="component">
+    SHOW NOTES
+
   </div>
 </template>
 
+
 <script>
   export default {
-    name: "",
-    props: [],
+    name: 'component',
     data() {
       return {}
     },
@@ -16,5 +17,8 @@
     components: {}
   }
 </script>
-<style>
+
+
+<style scoped>
+
 </style>
