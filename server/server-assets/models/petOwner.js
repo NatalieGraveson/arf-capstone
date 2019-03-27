@@ -9,10 +9,10 @@ let schema = new Schema({
   phone: { type: Number },
   eContactName: { type: String, required: false },
   eContactNumber: { type: Number, required: false },
-  balance: { type: String },
+  balance: { type: Number, required: true, default: true },
   email: { type: String },
   // petId: { type: ObjectId, ref: 'Pet' },
-  pets: [{ type : ObjectId, ref: 'Pet' }],
+  pets: [{ type: ObjectId, ref: 'Pet' }],
   noteId: { type: ObjectId, ref: 'Note' },
   identityId: { type: ObjectId, ref: 'Identity' }
 })

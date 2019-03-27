@@ -34,11 +34,15 @@
     props: [],
     mounted() {
       this.$store.dispatch("getOwners")
+      this.$store.dispatch("getTimeCard")
     },
     data() {
       return {}
     },
     computed: {
+      timeCards() {
+        return this.$store.state.timeCards
+      },
       owners() {
         return this.$store.state.owners
       },
