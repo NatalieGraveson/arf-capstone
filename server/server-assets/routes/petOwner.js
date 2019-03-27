@@ -17,13 +17,16 @@ router.get(baseRoute, (req, res, next) => {
 })
 
 //GET OWNER BAL
-router.get(baseRoute + '/:id', (req, res, next) => {
+router.get(baseRoute + 'bal', (req, res, next) => {
   let petOwnerId = req.param('id')
   TimeCards.findById(petOwnerId)
   for (let i = 0; i < TimeCards.length; i++) {
-    petOwner.balance += timeCard.billed
+    let ownerBal = PetOwners.balance
+    ownerBal += TimeCards[i].billed
+    return ownerBal
     //needs better syntax and probably some other stuff
   }
+
 })
 
 
