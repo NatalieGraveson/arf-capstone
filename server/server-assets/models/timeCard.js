@@ -6,8 +6,9 @@ let schemaName = 'TimeCard'
 let schema = new Schema({
   inTime: { type: Number },
   outTime: { type: Number },
-  totalTime: { type: Number },
+  totalTime: { type: Number, default: 0 },
   billed: { type: Number },
+  todayBill: { type: Number },
   petId: { type: ObjectId, ref: 'Pet', required: true },
   petOwnerId: { type: ObjectId, ref: 'Owner', required: true },
   identityId: { type: ObjectId, ref: 'Identity' }

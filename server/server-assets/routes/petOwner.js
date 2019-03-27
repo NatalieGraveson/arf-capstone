@@ -1,5 +1,6 @@
 let router = require('express').Router()
 let PetOwners = require('../models/petOwner')
+let TimeCards = require('../models/timeCard')
 
 let baseRoute = '/petowners'
 //GET ALL
@@ -14,6 +15,20 @@ router.get(baseRoute, (req, res, next) => {
       next(err)
     })
 })
+
+//GET OWNER BAL
+router.get(baseRoute + 'bal', (req, res, next) => {
+  let petOwnerId = req.param('id')
+  TimeCards.findById(petOwnerId)
+  for (let i = 0; i < TimeCards.length; i++) {
+    let ownerBal = PetOwners.balance
+    ownerBal += TimeCards[i].billed
+    return ownerBal
+    //needs better syntax and probably some other stuff
+  }
+
+})
+
 
 
 //GET ONE
@@ -74,6 +89,8 @@ router.delete(baseRoute + '/:id', (req, res, next) => {
         })
     })
 })
+
+
 
 
 

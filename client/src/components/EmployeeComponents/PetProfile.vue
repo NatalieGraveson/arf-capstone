@@ -15,7 +15,29 @@
                <h5>{{pstatus}}</h5>
                <p>Checked in Time: {{timeCard.inTime | formatTime}} </p>
                <p>Checked out Time: {{timeCard.outTime | formatTime}}</p>
-               <p>Total Time: {{timeCard.totalTime | getHours}}</p>
+               <p>Total Time: {{timeCard.totalTime | getHours}} <button class="btn btn-outline-success btn-sm"
+                     data-toggle="modal" data-target="#exampleModalCenter">Bill</button></p>
+               <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h5 class="modal-title text-dark" id="exampleModalCenterTitle">BILLING</h5>
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                        <div class="modal-body">
+                           <div class="text-dark">{{timeCard.totalTime | getHours}} x $4.00 =
+                              {{'$' + hourRate().toFixed(2)}} </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary"
+                              @click="billed(), $router.push({name: 'Billing'})">Charge Account</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
                <p>Breed: {{activePet.breed}}</p>
                <dog-note></dog-note>
             </div>
@@ -75,8 +97,14 @@
       data() {
          return {
             addNote: false,
+<<<<<<< HEAD
             incidentReport: false,
             reportCard: false
+=======
+            incidentModal: false,
+            reportCard: false,
+
+>>>>>>> 313a25af3354fae15a875a331f626a9e6ebb5d1f
          }
       },
       mounted() {
@@ -94,6 +122,13 @@
                return 'Checked In'
             }
             return 'Checked Out'
+         },
+         getHours() {
+            let date = this.$store.state.timeCard.totalTime
+            let hour = (date / 3600000).toFixed(2)
+            if (hour < 1) { hour = 1 }
+            if (!date) { hour = 0 }
+            return hour
          }
       },
       filters: {
@@ -105,10 +140,28 @@
             let hour = (date / 3600000).toFixed(2)
             if (hour < 1) { hour = 1 }
             if (!date) { hour = 0 }
-            return hour + 'Hours'
+            return hour + ' ' + 'Hours'
          }
       },
       methods: {
+         billed() {
+            let timeCardId = this.$store.state.timeCard._id
+            let petOwnerId = this.$store.state.activePet.petOwnerId
+            let petId = this.$store.state.activePet._id
+            let billed = this.getHours.toFixed(2) * 4
+            let payload = {
+               timeCardId,
+               petOwnerId,
+               petId,
+               billed
+            }
+
+            return this.$store.dispatch('editTimeCard', payload)
+         },
+         hourRate() {
+            let hourRate = this.getHours * 4
+            return hourRate
+         },
          timeIn() {
             let inTime = Date.now()
             let { _id: petId, petOwnerId } = this.$store.state.activePet //destructuring            
@@ -120,21 +173,23 @@
             return this.$store.dispatch('createTimeCard', payload)
          },
          timeOut() {
+
             let timeCardId = this.$store.state.timeCard._id
             let petId = this.$store.state.activePet._id
             let petOwnerId = this.$store.state.activePet.petOwnerId
             let outTime = Date.now()
             let inTime = this.$store.state.timeCard.inTime
             let totalTime = outTime - inTime
-            //and the billed amount
+
 
             let payload = {
                outTime,
                petId,
                timeCardId,
                petOwnerId,
-               totalTime
+               totalTime,
             }
+
             return this.$store.dispatch('editTimeCard', payload)
          },
          checkIn() {
@@ -170,8 +225,6 @@
                petName
             }
             return this.$store.dispatch('editActivePet', payload)
-         },
-         totalTime() {
          }
       },
       components: {

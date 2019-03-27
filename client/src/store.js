@@ -277,6 +277,10 @@ export default new Vuex.Store({
         .then(res => {
           commit('setTimeCard', res.data)
         })
+    },
+    submitTimeCard({ commit, dispatch }, payload) {
+      api.put('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/timecard/' + payload.timeCardId, payload)
+
     }
   }
 })
