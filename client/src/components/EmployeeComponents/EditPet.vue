@@ -22,7 +22,7 @@
                 Image:<input class="formfielder" type="url" v-model="pet.img" name="Img">
               </div>
               <div class="col-12 mt-3">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-outline-light" type="submit">Submit</button>
               </div>
             </form>
           </div>
@@ -31,8 +31,8 @@
         </div>
       </div>
     </div>
-    <button v-if="activePet.name" type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal"
-      @click="pet=activePet">Edit Pet</button>
+    <i v-if="activePet.name" class="click fas fa-edit fa-3x text-white" data-toggle="modal" data-target="#edit-modal"
+      @click="pet=activePet"></i>
   </div>
 </template>
 
@@ -67,7 +67,10 @@
   }
 
   .modal-content {
-    background-color: rgb(4, 4, 136);
+    background-image: linear-gradient(#89a6b8, #384349);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     border-radius: 20px;
   }
 
@@ -78,5 +81,9 @@
   .formfielder {
     width: 175px;
     margin-top: 7px;
+  }
+
+  .editpet {
+    text-align: right;
   }
 </style>

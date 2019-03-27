@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-12 elheadr ">
         <!-- <h1 class="mb-5 text-white">hi</h1> -->
-        <div class="row">
+        <div class="row d-flex justify-space-around">
           <dog v-for="dog in petMatches.length ? petMatches : dogs" :dogData="dog"></dog>
         </div>
       </div>

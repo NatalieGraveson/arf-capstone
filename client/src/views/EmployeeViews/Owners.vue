@@ -56,4 +56,17 @@
     margin-top: 100px;
     margin-bottom: 47px;
   }
+
+  .table {
+    margin-top: 50px;
+    margin-left: 102px;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .table {
+      margin-left: 0px;
+      margin-top: 100px;
+
+    }
+  }
 </style>

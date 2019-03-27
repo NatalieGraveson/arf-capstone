@@ -1,25 +1,24 @@
 <template>
-  <div class="row ReportCard">
+  <div class="incidentform row">
     <div class="col-12">
       <form @submit.prevent='createNote()'>
-        <h3 class="mt-2">File Report</h3>
-        <input class="formfield" type="text" v-model="notes.name" name="Name" placeholder="Name:" required>
+        <h3 class="mt-2">File Incident</h3>
+        <input class="formfield" type="text" v-model="notes.name" name="Behavior" placeholder="Name:" required>
         <br>
-        <input class="formfield" type="text" v-model="notes.behavior" name="behavior" placeholder="Behavior:" required>
+        <input class="formfield" type="text" v-model="notes.behavior" name="diet" placeholder="Behavior:" required>
         <br>
-        <input class="formfield" type="text" v-model="notes.body" name="Body" placeholder="Report:" required>
+        <input class="formfield" type="text" v-model="notes.body" name="body" placeholder="Additional Notes:" required>
         <br>
         <button class="btn btn-outline-light vall" type="submit">Submit</button>
       </form>
     </div>
-
   </div>
 </template>
 
 
 <script>
   export default {
-    name: 'ReportCard',
+    name: 'incidentform',
     data() {
       return {
         notes: {
@@ -42,7 +41,7 @@
         let petId = this.$store.state.activePet._id
         let petOwnerId = this.$store.state.activePet.petOwnerId
         let body = this.notes.body
-        let flagged = "Pet Report"
+        let flagged = "Incident"
         let payload = {
           body,
           petId,
@@ -58,13 +57,13 @@
           body: "",
           id: ""
         }
-      },
+      }
     },
     components: {}
   }
 </script>
 
 
-<style>
+<style scoped>
 
 </style>

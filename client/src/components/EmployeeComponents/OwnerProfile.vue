@@ -1,6 +1,6 @@
 <template>
-  <div class="row newCard">
-    <div class="col-12">
+  <div class="row">
+    <div class="col-12 newCard">
       <div class="row">
         <div class="col-md-6 col-12">
           <p>Name: {{owner.name}}</p>
@@ -19,10 +19,12 @@
           <p>Phone Number: {{owner.eContactNumber}}</p>
         </div>
         <edit-owner></edit-owner>
+
         <div class="col-4 col-md-3 petnames mt-3" v-for="pet in pets" @click="getActivePet(pet._id)">
           <div class="row">
             <div class="col-12 text-center pet-base">
               <p>{{pet.name}}</p>
+              <hr class="petc">
               <img class="pet-thumb d-flex justify-content-center" v-bind:src="pet.img">
             </div>
           </div>
@@ -96,12 +98,12 @@
   }
 
   .newCard {
-    /* background-image: url('https://vignette.wikia.nocookie.net/edwikia/images/0/0d/Plank.png/revision/latest/scale-to-width-down/338?cb=20170726093347'); */
-    /* background-repeat: no-repeat; */
-    /* background-size: 400px 150px; */
-    background-color: rgba(0, 0, 0, 0.267);
-    border-top-color: black;
-    border-right-color: black;
+    background-image: linear-gradient(#89a6b800, #384349);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    border-top-color: #384349;
+    border-right-color: #384349;
     border-right-style: solid;
     border-top-style: solid;
     letter-spacing: 1px;
@@ -115,6 +117,7 @@
     /* max-width: 22vw;
     min-height: 18vh; */
     border-radius: 20px;
+    font-size: 12px;
   }
 
   hr {
@@ -123,14 +126,36 @@
     background-color: rgb(71, 71, 71);
   }
 
+  hr.petc {
+    border: 1px solid rgb(71, 71, 71);
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
   .petnames {
-    background-color: rgba(0, 0, 0, 0.603);
+    background-image: linear-gradient(#89a6b800, #384349);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    border-top-color: #384349;
+    border-right-color: #384349;
+    border-right-style: solid;
+    border-top-style: solid;
     border-radius: 10px;
     margin: 0vh 3.4vw 1vh 3.4vw;
     display: flex;
     justify-content: space-around;
     cursor: pointer;
-    min-width: 150px;
     box-shadow: 5px 5px 5px rgba(177, 176, 176, 0.719);
+  }
+
+  p {
+    font-size: 25px;
+  }
+
+  @media only screen and (max-width: 450px) {
+    p {
+      font-size: 17px;
+    }
   }
 </style>

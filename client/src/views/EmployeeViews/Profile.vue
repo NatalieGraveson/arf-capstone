@@ -31,7 +31,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .petdetails {
     padding-top: 75px;
   }

@@ -25,6 +25,7 @@ export default new Vuex.Store({
     owners: [],
     pets: [],
     notes: [],
+    note: {},
     activeOwner: {},
     activePet: {},
     petMatches: [],
@@ -67,6 +68,9 @@ export default new Vuex.Store({
     },
     clearActivePet(state, data) {
       Vue.set(state, "activePet", {})
+    },
+    clearPets(state, data) {
+      Vue.set(state, "pets", {})
     },
     addNote(state, data) {
       state.notes.push(data)
@@ -247,6 +251,14 @@ export default new Vuex.Store({
           commit('setNotes', res.data)
         })
     },
+    deleteNote({ commit, dispatch }, payload) {
+      api.delete('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/notes/' + payload._id, payload)
+        .then(res => {
+          console.log(res)
+          dispatch('getNotes', payload)
+        })
+    },
+
     //#endregion
     createTimeCard({ commit, dispatch }, payload) {
       api.post('employee/petowners/' + payload.petOwnerId + '/pets/' + payload.petId + '/timecard', payload)

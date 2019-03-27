@@ -1,7 +1,7 @@
 <template>
    <div class="profCard row">
       <div class="col-12">
-         <div v-if="activePet.name" class=" pet-card row">
+         <div v-if="activePet.name" class=" row">
             <div class="col-12 col-md-4">
                <h2>{{activePet.name}}</h2>
                <button class=' check btn-success' v-if="!activePet.checkedIn"
@@ -20,34 +20,37 @@
                <dog-note></dog-note>
             </div>
          </div>
-         <div class="row notes-card">
+         <div class="row ">
             <div class="col-12">
-               <button @click="addNote = true, reportCard = false, incidentModal = false"
-                  class="btn btn-primary">Notes</button>
-               <button @click="addNote = false, reportCard = true, incidentModal = false" class="btn btn-primary">Report
+               <br>
+               <button @click="addNote = true, reportCard = false, incidentReport = false"
+                  class="btn btn-outline-light vall">Notes</button>
+               <button @click="addNote = false, reportCard = true, incidentReport = false"
+                  class="btn btn-outline-light vall">Report
                   Card</button>
-               <button @click="addNote = false, reportCard = false, incidentModal = true"
-                  class="btn btn-primary">Incident Report</button>
+               <button @click="addNote = false, reportCard = false, incidentReport = true"
+                  class="btn btn-outline-light vall">Incident Report</button>
             </div>
             <div class="col-12" v-show="addNote">
                <add-note></add-note>
             </div>
-            <div class="col-12" v-show="incidentModal">
-               <incident-modal></incident-modal>
+            <div class="col-12" v-show="incidentReport">
+               <incident-report></incident-report>
             </div>
             <div class="col-12" v-show="reportCard">
                <report-card></report-card>
             </div>
             <div class="col-12">
-               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notes-modal">View
+               <button type="button" class="btn btn-outline-light vall" data-toggle="modal"
+                  data-target="#notes-modal">View
                   All Notes</button>
                <show-notes>
                </show-notes>
+
             </div>
          </div>
          <div class="row">
             <div class="col-12 billing-card">
-               <p> Billing?</p>
             </div>
          </div>
       </div>
@@ -57,7 +60,7 @@
 
 <script>
    import EditPet from '@/components/EmployeeComponents/EditPet.vue'
-   import IncidentModal from '@/components/EmployeeComponents/IncidentModal.vue'
+   import IncidentReport from '@/components/EmployeeComponents/IncidentReport.vue'
    import AddNote from '@/components/EmployeeComponents/AddNote.vue'
    import DogNote from '@/components/EmployeeComponents/DogNote.vue'
    import Moment from 'moment'
@@ -72,7 +75,7 @@
       data() {
          return {
             addNote: false,
-            incidentModal: false,
+            incidentReport: false,
             reportCard: false
          }
       },
@@ -171,10 +174,9 @@
          totalTime() {
          }
       },
-
       components: {
          EditPet,
-         IncidentModal,
+         IncidentReport,
          AddNote,
          DogNote,
          ReportCard,
@@ -190,20 +192,23 @@
    }
 
    .petimg {
-      width: 150;
-      height: 300px;
+      max-height: 30vh;
+      min-height: 30vh;
+      min-width: 23vw;
+      border-radius: 20px;
+      margin-top: 10px;
       border-radius: 10px;
-      box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.589);
+      box-shadow: 3px 3px 3px #89a6b800;
       margin-bottom: 8px;
    }
 
    .profCard {
-      /* background-image: url('https://vignette.wikia.nocookie.net/edwikia/images/0/0d/Plank.png/revision/latest/scale-to-width-down/338?cb=20170726093347'); */
-      /* background-repeat: no-repeat; */
-      /* background-size: 400px 150px; */
-      background-color: rgba(0, 0, 0, 0.267);
-      border-top-color: black;
-      border-right-color: black;
+      background-image: linear-gradient(#89a6b800, #384349);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      border-top-color: #384349;
+      border-right-color: #384349;
       border-right-style: solid;
       border-top-style: solid;
       letter-spacing: 1px;
@@ -214,24 +219,48 @@
       text-shadow: -1px -1px black;
       letter-spacing: 2px;
       align-items: center !important;
-      /* max-width: 22vw;
-    min-height: 18vh; */
       border-radius: 20px;
    }
 
    .pet-card {
-      background-color: rgba(0, 0, 0, 0.445);
+      background-image: linear-gradient(#89a6b8, #384349);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      border-top-color: #384349;
+      border-right-color: #384349;
+      border-right-style: solid;
+      border-top-style: solid;
       padding: 5px 0px;
       margin: 0px 0px;
       border-radius: 10px;
    }
 
    .notes-card {
-      background-color: rgba(0, 0, 0, 0.445);
+      background-image: linear-gradient(#89a6b8, #384349);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      border-top-color: #384349;
+      border-right-color: #384349;
+      border-right-style: solid;
+      border-top-style: solid;
       padding: 5px 0px;
       margin: 8px 0px;
       border-radius: 10px;
    }
-</style>
-</style>
+
+   p {
+      font-size: 25px;
+   }
+
+   .vall {
+      margin-top: 10px;
+      margin-right: 5px;
+   }
+
+   hr.pet {
+      border: 10px solid rgb(56, 67, 73);
+      border-radius: 5px;
+   }
 </style>

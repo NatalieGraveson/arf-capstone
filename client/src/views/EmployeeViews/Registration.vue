@@ -13,7 +13,6 @@
 
 <script>
   import RegisterOwner from '@/components/EmployeeComponents/RegisterOwner.vue'
-  import RegisterPet from '@/components/EmployeeComponents/RegisterPet.vue'
   export default {
     name: 'registration',
     data() {
@@ -25,7 +24,6 @@
     methods: {},
     components: {
       RegisterOwner,
-      RegisterPet
     }
   }
 </script>

@@ -1,4 +1,5 @@
 <template>
+
   <div class="editowner col-12">
     <div class="modal" tabindex="-1" role="dialog" id="editowner-modal">
       <div class="modal-dialog" role="document">
@@ -29,7 +30,7 @@
                   name="Emergency Contact Number">
               </div>
               <div class="col-12 mt-3">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-outline-light " data-dismiss="modal" type="submit">Submit</button>
               </div>
             </form>
           </div>
@@ -38,9 +39,9 @@
         </div>
       </div>
     </div>
-    <button v-if="activeOwner.name" type="button" class="btn btn-primary" data-toggle="modal"
-      data-target="#editowner-modal" @click="owner=activeOwner">Edit Owner</button>
-
+    <i v-if="activeOwner.name" class=" click fas fa-edit fa-3x text-white" data-toggle="modal"
+      data-target="#editowner-modal" @click="owner=activeOwner"></i>
+    <hr>
   </div>
 </template>
 
@@ -74,7 +75,11 @@
   }
 
   .modal-content {
-    background-color: rgb(4, 4, 136);
+    background-image: linear-gradient(#89a6b8, #384349);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    ;
     border-radius: 20px;
   }
 
@@ -85,5 +90,9 @@
   .formfielder {
     width: 175px;
     margin-top: 7px;
+  }
+
+  .editowner {
+    text-align: right;
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 col-md-3 mb-3 petcards d-flex justify-content-center card-group click">
+  <div class="col-12 col-md-3 mb-3 petcards d-flex justify-content-center text-dark card-group click">
     <div @click="$router.push({name: 'Profile', params: {id:dogData.petOwnerId}})" class="">
       <img v-bind:src="dogImg" class="card-img-top">
       <div class="card-body">
@@ -41,7 +41,6 @@
   .petcards {
     flex-direction: row;
     color: white;
-    text-shadow: 1px 2px black;
     background-color: rgba(235, 229, 229, 0.671);
     /* border-radius: 20px; */
     border-style: solid;

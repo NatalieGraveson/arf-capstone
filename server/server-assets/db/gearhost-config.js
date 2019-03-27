@@ -10,6 +10,34 @@ connection.on('error', err => {
 })
 
 
-connection.once('open', () => {
-  console.log('Connected to Database')
-})
+// connection.once('open', () => {
+//   console.log('Connected to Database')
+//   connection.dropCollection('notes', (err, result) => {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       console.log('notes success!')
+//     }
+//   })
+//   connection.dropCollection('pets', (err, result) => {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       console.log('pets success!')
+//     }
+//   })
+//   connection.dropCollection('petowners', (err, result) => {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       console.log('petowners success!')
+//     }
+//   })
+//   connection.dropCollection('timecards', (err, result) => {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       console.log('timecards success!')
+//     }
+//   })
+// })

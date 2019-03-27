@@ -18,7 +18,7 @@
           placeholder="Number:">
       </div>
       <div class="col-12 mt-3">
-        <button class="btn btn-info" type="submit">Create Owner</button>
+        <button class="btn btn-outline-light" type="submit">Create Owner</button>
       </div>
     </form>
   </div>
@@ -50,19 +50,26 @@
 
 <style scoped>
   .registerowner {
-    background-color: rgba(0, 0, 0, 0.596);
+    background-image: linear-gradient(#89a6b800, #384349);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    border-style: solid;
+    border-color: #384349;
     border-radius: 30px;
     padding: 30px;
   }
 
   h3 {
-    color: rgb(144, 185, 32);
+    color: black;
     text-shadow: -1px -1px black;
+    font-size: 36px;
   }
 
   h5 {
     color: rgb(185, 37, 32);
-    text-shadow: -1px -1px black;
+    text-shadow: 1px 1px black;
+    font-size: 36px;
   }
 
 

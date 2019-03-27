@@ -11,7 +11,7 @@
           </div>
           <div class="modal-body">
             <form class="row" @submit.prevent='createPet()'>
-              <div class="col-12">
+              <div class="col-12 formstuff">
                 <h3>Pet Information</h3>
                 <input class="formfield" type="text" v-model="newPet.name" name="Name" placeholder="Name:" required>
                 <br>
@@ -22,7 +22,7 @@
                 <input class="formfield" type="url" v-model="newPet.img" name="Age" placeholder="Img:">
               </div>
               <div class="col-12 mt-3">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn pagebtn btn-outline-light" data-dismiss="modal" type="submit">Submit</button>
               </div>
             </form>
           </div>
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test-modal">Add Pet</button>
+    <i class="click pagebtn fas fa-plus fa-3x text-white" data-toggle="modal" data-target="#test-modal"></i>
   </div>
 </template>
 
@@ -67,7 +67,29 @@
   }
 
   .modal-content {
-    background-color: rgb(4, 4, 136);
+    background-image: linear-gradient(#89a6b8, #384349);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     border-radius: 20px;
+  }
+
+  .pagebtn {
+    margin-top: 10px;
+  }
+
+  .addpet {
+    text-align: right;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .addpet {
+      text-align: center;
+
+    }
+  }
+
+  .formstuff {
+    text-align: center;
   }
 </style>

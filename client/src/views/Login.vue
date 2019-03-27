@@ -3,14 +3,16 @@
     <div class="row cuteDog">
       <div class="col-12">
         <form class="coolForm" v-if="loginForm" @submit.prevent="loginUser">
-          <input class="form-control bg-transparent" type="email" v-model="creds.email" placeholder="email">
-          <input class="form-control bg-transparent" type="password" v-model="creds.password" placeholder="password">
+          <input class="form-control bg-transparent text-dark" type="email" v-model="creds.email" placeholder="email">
+          <input class="form-control bg-transparent text-dark" type="password" v-model="creds.password"
+            placeholder="password">
           <button class="btn btn-secondary" type="submit">Login</button>
         </form>
         <form class="coolForm" v-else @submit.prevent="register">
-          <input class="form-control bg-transparent" type="text" v-model="newUser.name" placeholder="name">
-          <input class="form-control bg-transparent" type="email" v-model="newUser.email" placeholder="email">
-          <input class="form-control bg-transparent" type="password" v-model="newUser.password" placeholder="password">
+          <input class="form-control bg-transparent text-dark" type="text" v-model="newUser.name" placeholder="name">
+          <input class="form-control bg-transparent text-dark" type="email" v-model="newUser.email" placeholder="email">
+          <input class="form-control bg-transparent text-dark" type="password" v-model="newUser.password"
+            placeholder="password">
           <button class="btn btn-secondary" type="submit">Create Account</button>
         </form>
       </div>
@@ -73,7 +75,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .action {
     cursor: pointer;
     color: white;
@@ -114,10 +116,10 @@
 
 
   .coolForm {
-    margin-top: 86px;
+    margin-top: 100px;
     width: 244px;
     text-align: center;
-    margin-left: 795px;
+    margin-left: 525px;
   }
 
   @media only screen and (max-width: 450px) {
@@ -134,12 +136,15 @@
     color: white;
     margin-top: 20px;
     font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
   }
 
   p {
     color: white;
     margin-top: 10px;
     font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px black;
   }
 
   .explanation {
@@ -149,11 +154,11 @@
 
   .prettyList {
     text-align: left;
-    margin-left: 38px;
     margin-top: 30px;
     font-size: 19px;
-    margin-left: 745px;
+    margin-left: 450px;
     font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
   }
 
   @media only screen and (max-width: 450px) {
@@ -164,6 +169,7 @@
       font-size: 19px;
       margin-left: 20px;
       font-size: 22px;
+      font-family: 'Montserrat', sans-serif;
     }
   }
 </style>

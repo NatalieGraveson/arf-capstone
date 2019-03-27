@@ -3,7 +3,7 @@
       <nav class="navbar navbar-light landNav">
          <form class="form-inline">
             <input @input="" class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
-            <button class="btn navbtns my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
          </form>
       </nav>
 
@@ -25,9 +25,5 @@
    }
 </script>
 <style scoped>
-   .navbtns {
-      border-style: solid;
-      border-color: white;
-      color: white;
-   }
+
 </style>
